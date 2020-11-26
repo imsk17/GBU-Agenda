@@ -1,0 +1,39 @@
+name: GbuAgenda
+
+description: A Schedule App for Gautam Buddha University that doesnt suck.
+
+publish_to: "none"
+
+version: 0.0.1
+
+environment:
+  sdk: ">=2.10.4 <3.0.0"
+
+dependencies:
+  # For Serialization
+  json_serializable: ^3.5.0
+  # For State Management
+  flutter_riverpod: ^0.12.1
+  # For HTTP Requests
+  dio: ^3.0.10
+  # For DI
+  injectable:
+  get_it: ^5.0.1
+  # For Database
+  hive: ^1.4.4+1
+  hive_flutter: ^0.3.1
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  injectable_generator:
+  build_runner:
+  hive_generator: ^0.8.2
+  # For Linting
+  pedantic: ^1.9.0
+
+flutter:
+  uses-material-design: true
