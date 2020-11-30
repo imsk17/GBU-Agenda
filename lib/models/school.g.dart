@@ -3,19 +3,63 @@
 part of 'school.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class SchoolAdapter extends TypeAdapter<School> {
+  @override
+  final int typeId = 1;
+
+  @override
+  School read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return School(
+      name: fields[0] as String,
+      fullName: fields[1] as String,
+      id: fields[2] as int,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, School obj) {
+    writer
+      ..writeByte(3)
+      ..writeByte(0)
+      ..write(obj.name)
+      ..writeByte(1)
+      ..write(obj.fullName)
+      ..writeByte(2)
+      ..write(obj.id);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is SchoolAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
 School _$SchoolFromJson(Map<String, dynamic> json) {
   return School(
-    name: json['school'] as String,
+    name: json['name'] as String,
     fullName: json['full_name'] as String,
     id: json['id'] as int,
   );
 }
 
 Map<String, dynamic> _$SchoolToJson(School instance) => <String, dynamic>{
-      'school': instance.name,
+      'name': instance.name,
       'full_name': instance.fullName,
       'id': instance.id,
     };

@@ -1,15 +1,21 @@
+import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'room.g.dart';
 
+@HiveType(typeId: 9)
 @JsonSerializable(nullable: false)
 class Room {
+  @HiveField(0)
   @JsonKey(name: 'id')
   int id;
+  @HiveField(1)
   @JsonKey(name: 'name')
   String name;
+  @HiveField(2)
   @JsonKey(name: 'building')
   String building;
+  @HiveField(3)
   @JsonKey(name: 'is_lab')
   int isLab;
 

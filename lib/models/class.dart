@@ -1,21 +1,28 @@
 import 'package:GbuAgenda/models/bteacher.dart';
 import 'package:GbuAgenda/models/room.dart';
+import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'bsubject.dart';
 
 part 'class.g.dart';
 
+@HiveType(typeId: 6)
 @JsonSerializable(nullable: false)
 class Class {
+  @HiveField(0)
   @JsonKey(name: 'period')
   int period;
+  @HiveField(1)
   @JsonKey(name: 'batch')
   int batch;
+  @HiveField(2)
   @JsonKey(name: 'subject')
   BSubject subject;
+  @HiveField(3)
   @JsonKey(name: 'room')
   Room room;
+  @HiveField(4)
   @JsonKey(name: 'teacher')
   BTeacher teacher;
 
