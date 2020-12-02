@@ -5,9 +5,11 @@ import 'package:GbuAgenda/models/teacher.dart';
 import 'package:GbuAgenda/models/timetable.dart';
 import 'package:GbuAgenda/utils/constants.dart';
 import 'package:hive/hive.dart';
+import 'package:injectable/injectable.dart';
 
 import 'dao.dart';
 
+@LazySingleton(as: DAO)
 class GBUDao implements DAO {
   @override
   Future<List<School>> getAllSchools() async {

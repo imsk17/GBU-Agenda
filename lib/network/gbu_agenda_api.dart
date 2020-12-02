@@ -8,9 +8,11 @@ import 'package:GbuAgenda/models/timetable.dart';
 import 'package:GbuAgenda/network/api.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/src/dio.dart';
+import 'package:injectable/injectable.dart';
 
 import 'failure.dart';
 
+@LazySingleton(as: API)
 class GBUAgendaAPI implements API {
   final Dio _dioClient;
 
