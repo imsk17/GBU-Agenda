@@ -5,4 +5,6 @@ abstract class Constants {
   static const TimetableBox = 'TimetableBox';
   static const SubjectBox = 'SubjectBox';
   static const TeacherBox = 'TeacherBox';
+  static const AppBox = 'AppBox';
+  static const TimeTableFetchKey = 'LastTimetableFetchDate';
 }

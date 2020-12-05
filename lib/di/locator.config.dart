@@ -10,8 +10,10 @@ import 'package:dio/dio.dart';
 import 'package:GbuAgenda/di/locator.dart';
 import 'package:GbuAgenda/network/gbu_agenda_api.dart';
 import 'package:GbuAgenda/db/gbu_dao.dart';
+import 'package:GbuAgenda/repository/gbu_repository.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
+import 'package:GbuAgenda/repository/repository.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -28,6 +30,7 @@ GetIt $initGetIt(
   gh.lazySingleton<Dio>(
       () => dioModule.dio(get<String>(instanceName: 'BaseUrl')));
   gh.lazySingleton<API>(() => GBUAgendaAPI(get<Dio>()));
+  gh.lazySingleton<Repository>(() => GBURepository(get<DAO>(), get<API>()));
   return get;
 }
 
