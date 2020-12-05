@@ -16,17 +16,21 @@ class GBUDao implements DAO {
     if (Hive.isBoxOpen(Constants.SchoolBox)) {
       return Hive.box<School>(Constants.SchoolBox).values.toList();
     } else {
-      return (await Hive.openBox(Constants.SchoolBox)).values.toList();
+      return (await Hive.openBox<School>(Constants.SchoolBox)).values.toList();
     }
   }
 
   @override
   Future<List<Section>> getAllSections(String school) async {
-    if (Hive.isBoxOpen(Constants.SchoolBox)) {
-      return Hive.box<Section>(Constants.SectionBox).values.toList();
+    if (Hive.isBoxOpen(Constants.SectionBox)) {
+      return Hive.box<Section>(Constants.SectionBox)
+          .values
+          .where((element) => element.school == school)
+          .toList();
     } else {
       return (await Hive.openBox<Section>(Constants.SectionBox))
           .values
+          .where((element) => element.school == school)
           .toList();
     }
   }
@@ -34,41 +38,28 @@ class GBUDao implements DAO {
   @override
   Future<Timetable> getTimetable(int section) async {
     if (Hive.isBoxOpen(Constants.TimetableBox)) {
-      return Hive.box<Timetable>(Constants.TimetableBox).values.last;
+      return Hive.box<Timetable>(Constants.TimetableBox).get('$section');
     } else {
       return (await Hive.openBox<Timetable>(Constants.TimetableBox))
-          .values
-          .last;
+          .get('$section');
     }
   }
 
   @override
   Future<Subject> getSubject(String code) async {
     if (Hive.isBoxOpen(Constants.SubjectBox)) {
-      return Hive.box<Subject>(Constants.SubjectBox)
-          .values
-          .where((element) => element.subCode == code)
-          .first;
+      return Hive.box<Subject>(Constants.SubjectBox).get(code);
     } else {
-      return (await Hive.openBox<Subject>(Constants.SubjectBox))
-          .values
-          .where((element) => element.subCode == code)
-          .first;
+      return (await Hive.openBox<Subject>(Constants.SubjectBox)).get(code);
     }
   }
 
   @override
   Future<Teacher> getTeacher(int id) async {
     if (Hive.isBoxOpen(Constants.TeacherBox)) {
-      return Hive.box<Teacher>(Constants.TeacherBox)
-          .values
-          .where((element) => element.id == id)
-          .first;
+      return Hive.box<Teacher>(Constants.TeacherBox).get('$id');
     } else {
-      return (await Hive.openBox<Teacher>(Constants.TeacherBox))
-          .values
-          .where((element) => element.id == id)
-          .first;
+      return (await Hive.openBox<Teacher>(Constants.TeacherBox)).get('$id');
     }
   }
 }
