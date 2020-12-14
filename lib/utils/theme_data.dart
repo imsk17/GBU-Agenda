@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 final theme = ThemeData.dark().copyWith(
-  accentColor: Color(0xFF36B6DE),
-  scaffoldBackgroundColor: Color(0xFF1C1F3E),
+  accentColor: const Color(0xFF36B6DE),
+  scaffoldBackgroundColor: const Color(0xFF1C1F3E),
   splashColor: Colors.white,
-  buttonTheme: ButtonThemeData(
+  buttonTheme: const ButtonThemeData(
     splashColor: Colors.white,
     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
     buttonColor: Color(0xFF36B6DE),
     focusColor: Color(0xFF36B6DE),
   ),
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     headline1: TextStyle(
         fontSize: 64,
         color: Colors.white,
@@ -27,5 +27,5 @@ final theme = ThemeData.dark().copyWith(
     headline6:
         TextStyle(fontSize: 18, color: Colors.white, fontFamily: 'ApercuPro'),
   ),
-  iconTheme: IconThemeData(color: Colors.white, size: 24),
+  iconTheme: const IconThemeData(color: Colors.white, size: 24),
 );

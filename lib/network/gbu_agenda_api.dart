@@ -7,7 +7,6 @@ import 'package:GbuAgenda/models/teacher.dart';
 import 'package:GbuAgenda/models/timetable.dart';
 import 'package:GbuAgenda/network/api.dart';
 import 'package:dio/dio.dart';
-import 'package:dio/src/dio.dart';
 import 'package:injectable/injectable.dart';
 
 import 'failure.dart';
@@ -20,11 +19,11 @@ class GBUAgendaAPI implements API {
 
   @override
   Future<List<School>> getAllSchools() async {
-    var schools = <School>[];
+    final schools = <School>[];
     try {
-      var response = await _dioClient.get('schools');
+      final response = await _dioClient.get('schools');
       for (final item in response.data) {
-        var school = School.fromJson(item);
+        final school = School.fromJson(item as Map<String, dynamic>);
         schools.add(school);
       }
     } on SocketException {
@@ -39,11 +38,11 @@ class GBUAgendaAPI implements API {
 
   @override
   Future<List<Section>> getAllSections(String school) async {
-    var sections = <Section>[];
+    final sections = <Section>[];
     try {
-      var response = await _dioClient.get('/sections?school=${school}');
+      final response = await _dioClient.get('/sections?school=$school');
       for (final item in response.data) {
-        var section = Section.fromJson(item);
+        final section = Section.fromJson(item as Map<String, dynamic>);
         sections.add(section);
       }
     } on SocketException {
@@ -60,8 +59,8 @@ class GBUAgendaAPI implements API {
   Future<Subject> getSubject(String code) async {
     Subject subject;
     try {
-      var response = await _dioClient.get('/subjects?subject=${code}');
-      subject = Subject.fromJson(response.data);
+      final response = await _dioClient.get('/subjects?subject=$code');
+      subject = Subject.fromJson(response.data as Map<String, dynamic>);
     } on SocketException {
       throw Failure('Your internet is trash.');
     } on FormatException {
@@ -76,8 +75,8 @@ class GBUAgendaAPI implements API {
   Future<Teacher> getTeacher(int teacherId) async {
     Teacher teacher;
     try {
-      var response = await _dioClient.get('/teachers?teacher_id=${teacherId}');
-      teacher = Teacher.fromJson(response.data);
+      final response = await _dioClient.get('/teachers?teacher_id=$teacherId');
+      teacher = Teacher.fromJson(response.data as Map<String, dynamic>);
     } on SocketException {
       throw Failure('Your internet is trash.');
     } on FormatException {
@@ -92,12 +91,12 @@ class GBUAgendaAPI implements API {
   Future<Timetable> getTimetable(int section) async {
     Timetable timetable;
     try {
-      var response = await _dioClient.get('/timetable?section=${section}');
-      timetable = Timetable.fromJson(response.data);
+      final response = await _dioClient.get('/timetable?section=$section');
+      timetable = Timetable.fromJson(response.data as Map<String, dynamic>);
     } on SocketException {
       throw Failure('Your internet is trash.');
     } on FormatException catch (e) {
-      throw Failure('My Server is crazy. Please retry later.' + e.toString());
+      throw Failure('My Server is crazy. Please retry later. $e');
     } on HttpException {
       throw Failure('Bruh Moment, My Server is trash. Use the Website');
     }

@@ -22,7 +22,7 @@ class GBURepository implements Repository {
     final schools = await gbuDao.getAllSchools();
     if (schools.isEmpty) {
       final school = await gbuApi.getAllSchools();
-      await Hive.box<School>(Constants.SchoolBox).addAll(school);
+      await Hive.box<School>(Constants.schoolBox).addAll(school);
       return school;
     } else {
       return schools;
@@ -34,7 +34,7 @@ class GBURepository implements Repository {
     final sections = await gbuDao.getAllSections(school);
     if (sections.isEmpty) {
       final section = await gbuApi.getAllSections(school);
-      await Hive.box<Section>(Constants.SectionBox).addAll(section);
+      await Hive.box<Section>(Constants.sectionBox).addAll(section);
       return section;
     } else {
       return sections;
@@ -46,7 +46,7 @@ class GBURepository implements Repository {
     final subject = await gbuDao.getSubject(code);
     if (subject == null) {
       final sub = await gbuApi.getSubject(code);
-      await Hive.box<Subject>(Constants.SubjectBox).put(code, sub);
+      await Hive.box<Subject>(Constants.subjectBox).put(code, sub);
       return sub;
     } else {
       return subject;
@@ -58,7 +58,7 @@ class GBURepository implements Repository {
     final teacher = await gbuDao.getTeacher(id);
     if (teacher == null) {
       final teach = await gbuApi.getTeacher(id);
-      await Hive.box<Teacher>(Constants.TeacherBox).put('$id', teach);
+      await Hive.box<Teacher>(Constants.teacherBox).put('$id', teach);
       return teach;
     } else {
       return teacher;
@@ -68,14 +68,14 @@ class GBURepository implements Repository {
   @override
   Future<Timetable> getTimetable(int section) async {
     final timetable = await gbuApi.getTimetable(section);
-    await Hive.box<String>(Constants.AppBox)
-        .put(Constants.TimeTableFetchKey, DateTime.now().toString());
+    await Hive.box<String>(Constants.appBox)
+        .put(Constants.timeTableFetchKey, DateTime.now().toString());
     if (timetable != null) {
-      await Hive.box<Timetable>(Constants.TimetableBox)
+      await Hive.box<Timetable>(Constants.timetableBox)
           .put('$section', timetable);
       return timetable;
     } else {
-      return await gbuDao.getTimetable(section);
+      return gbuDao.getTimetable(section);
     }
   }
 }

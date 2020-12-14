@@ -10,35 +10,28 @@ environment:
   sdk: ">=2.10.4 <3.0.0"
 
 dependencies:
-  # For Serialization
-  json_serializable: ^3.5.0
-  # For State Management
-  flutter_riverpod: ^0.12.1
-  # For HTTP Requests
-  dio: ^3.0.10
-  # For DI
-  injectable:
-  get_it: ^5.0.1
-  # For Database
-  hive: ^1.4.4+1
-  hive_flutter: ^0.3.1
-  # Error Reporting
-  sentry_flutter: ^4.0.0-beta.1
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
-  # For Error Handling Like A Pro
   dartz: ^0.9.2
+  dio: ^3.0.10
+  flutter_riverpod: ^0.12.1
+  get_it: ^5.0.1
+  hive: ^1.4.4+1
+  hive_flutter: ^0.3.1
+  injectable: null
+  json_serializable: ^3.5.0
+  sentry_flutter: ^4.0.0-beta.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  injectable_generator:
-  build_runner:
-  hive_generator: ^0.8.2
-  # For Linting
-  pedantic: ^1.9.0
+  build_runner: null
   flutter_launcher_icons: ^0.8.1
+  hive_generator: ^0.8.2
+  injectable_generator: null
+  # For Linting
+  lint: ^1.0.1
 
 flutter_icons:
   android: "launcher_icon"
@@ -61,4 +54,3 @@ flutter:
       fonts:
         - asset: fonts/NeutrifPro/NeutrifPro-Medium.otf
           weight: 500
-
