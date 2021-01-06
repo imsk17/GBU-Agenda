@@ -30,7 +30,7 @@ class GBUAgendaAPI implements API {
       throw Failure('Your internet is trash.');
     } on FormatException {
       throw Failure('My Server is crazy. Please retry later.');
-    } on HttpException {
+    } on DioError {
       throw Failure('Bruh Moment, My Server is trash. Use the Website');
     }
     return schools;
@@ -49,7 +49,7 @@ class GBUAgendaAPI implements API {
       throw Failure('Your internet is trash.');
     } on FormatException {
       throw Failure('My Server is crazy. Please retry later.');
-    } on HttpException {
+    } on DioError {
       throw Failure('Bruh Moment, My Server is trash. Use the Website');
     }
     return sections;
@@ -65,7 +65,7 @@ class GBUAgendaAPI implements API {
       throw Failure('Your internet is trash.');
     } on FormatException {
       throw Failure('My Server is crazy. Please retry later.');
-    } on HttpException {
+    } on DioError {
       throw Failure('Bruh Moment, My Server is trash. Use the Website');
     }
     return subject;
@@ -81,7 +81,7 @@ class GBUAgendaAPI implements API {
       throw Failure('Your internet is trash.');
     } on FormatException {
       throw Failure('My Server is crazy. Please retry later.');
-    } on HttpException {
+    } on DioError {
       throw Failure('Bruh Moment, My Server is trash. Use the Website');
     }
     return teacher;
@@ -97,7 +97,7 @@ class GBUAgendaAPI implements API {
       throw Failure('Your internet is trash.');
     } on FormatException catch (e) {
       throw Failure('My Server is crazy. Please retry later. $e');
-    } on HttpException {
+    } on DioError {
       throw Failure('Bruh Moment, My Server is trash. Use the Website');
     }
     return timetable;
