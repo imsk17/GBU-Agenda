@@ -1,4 +1,9 @@
 include: package:lint/analysis_options.yaml
+linter:
+  rules:
+    avoid_classes_with_only_static_members: false
+    type_annotate_public_apis: false
+
 analyzer:
   exclude:
     - lib/**/*.*.dart //
