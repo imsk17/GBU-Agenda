@@ -33,12 +33,12 @@ var theme = ThemeData.dark().copyWith(
   ),
   textTheme: const TextTheme(
     headline1: TextStyle(
-        fontSize: 64,
+        fontSize: 55,
         color: Colors.white,
         fontFamily: 'NeutrifPro',
         fontWeight: FontWeight.w500),
     headline2:
-        TextStyle(fontSize: 55, color: Colors.white, fontFamily: 'NeutrifPro'),
+        TextStyle(fontSize: 45, color: Colors.white, fontFamily: 'NeutrifPro'),
     headline3:
         TextStyle(fontSize: 20, color: Colors.white, fontFamily: 'TTCommons'),
     headline4:
