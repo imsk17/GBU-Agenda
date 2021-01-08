@@ -1,14 +1,35 @@
 import 'package:flutter/material.dart';
 
-final theme = ThemeData.dark().copyWith(
-  accentColor: const Color(0xFF36B6DE),
-  scaffoldBackgroundColor: const Color(0xFF1C1F3E),
+abstract class Colours {
+  static const accent = Color(0xFF36B6DE);
+  static const scaffold = Color(0xFF1C1F3E);
+  static const lightScaffold = Color(0xFF272846);
+  static const error = Color(0xffE57A7A);
+  static const timing = Color(0xFFB6ADAD);
+}
+
+var theme = ThemeData.dark().copyWith(
+  tabBarTheme: const TabBarTheme(
+    indicator: BoxDecoration(
+      border: Border(
+        bottom: BorderSide(
+          color: Colours.accent,
+          width: 3.0,
+        ),
+      ),
+    ),
+  ),
+  accentColor: Colours.accent,
+  scaffoldBackgroundColor: Colours.scaffold,
   splashColor: Colors.white,
-  buttonTheme: const ButtonThemeData(
+  buttonTheme: ButtonThemeData(
+    padding: const EdgeInsets.all(12),
     splashColor: Colors.white,
-    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-    buttonColor: Color(0xFF36B6DE),
-    focusColor: Color(0xFF36B6DE),
+    buttonColor: Colours.accent,
+    focusColor: Colours.accent,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(6),
+    ),
   ),
   textTheme: const TextTheme(
     headline1: TextStyle(
@@ -27,5 +48,8 @@ final theme = ThemeData.dark().copyWith(
     headline6:
         TextStyle(fontSize: 18, color: Colors.white, fontFamily: 'ApercuPro'),
   ),
-  iconTheme: const IconThemeData(color: Colors.white, size: 24),
+  iconTheme: const IconThemeData(
+    color: Colors.white,
+    size: 24,
+  ),
 );
