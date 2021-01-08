@@ -67,10 +67,11 @@ class GBURepository implements Repository {
 
   @override
   Future<Timetable> getTimetable(int section) async {
-    final timetable = await gbuApi.getTimetable(section);
-    await Hive.box<String>(Constants.appBox)
+    var timetable = await gbuDao.getTimetable(section);
+    Hive.box(Constants.appBox)
         .put(Constants.timeTableFetchKey, DateTime.now().toString());
-    if (timetable != null) {
+    if (timetable == null) {
+      timetable = await gbuApi.getTimetable(section);
       await Hive.box<Timetable>(Constants.timetableBox)
           .put('$section', timetable);
       return timetable;
