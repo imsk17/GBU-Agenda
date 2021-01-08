@@ -1,4 +1,4 @@
-package com.example.GbuAgenda
+package dev.imsk17.GBUAgenda
 
 import io.flutter.embedding.android.FlutterActivity
 
