@@ -167,29 +167,3 @@ class TimetableScreen extends ConsumerWidget {
     );
   }
 }
-
-// class Timetable extends ConsumerWidget {
-//   @override
-//   // ignore: type_annotate_public_apis
-//   Widget build(BuildContext context, watch) {
-//     final section =
-//         context.read(SectionSelectorNotifier.provider).getFromDatabase();
-//     final timetable = watch(DataProviders.timeTable(section.sectionId));
-//     return timetable.when(
-//       data: (data) => Column(
-//         children: [],
-//       ),
-//       loading: () => const CircularProgressIndicator(),
-//       error: (f, _) => MaterialButton(
-//         onPressed: () {
-//           context.refresh(DataProviders.timeTable(section.sectionId));
-//         },
-//         color: theme.accentColor,
-//         child: Text(
-//           "Retry",
-//           style: theme.textTheme.headline6,
-//         ),
-//       ),
-//     );
-//   }
-// }
