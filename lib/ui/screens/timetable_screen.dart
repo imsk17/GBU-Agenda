@@ -5,6 +5,8 @@ import 'package:GbuAgenda/utils/constants.dart';
 import 'package:GbuAgenda/utils/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hive/hive.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class TimetableScreen extends ConsumerWidget {
   @override
@@ -19,10 +21,22 @@ class TimetableScreen extends ConsumerWidget {
         section.sectionId,
       ),
     );
+
     return timetable.when(
       data: (d) => DefaultTabController(
         length: d.days.length,
         child: Scaffold(
+          bottomSheet: Container(
+            height: 16,
+            color: theme.accentColor,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                "Last Updated: ${timeago.format(DateTime.parse(Hive.box(Constants.appBox).get(Constants.timeTableFetchKey) as String))} ",
+                style: theme.textTheme.headline6.copyWith(fontSize: 12),
+              ),
+            ),
+          ),
           backgroundColor: theme.scaffoldBackgroundColor,
           appBar: AppBar(
             bottom: TabBar(

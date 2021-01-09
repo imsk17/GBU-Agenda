@@ -10,6 +10,8 @@ import 'package:GbuAgenda/utils/constants.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 
+import '../network/failure.dart';
+
 @LazySingleton(as: Repository)
 class GBURepository implements Repository {
   final DAO gbuDao;
@@ -67,16 +69,21 @@ class GBURepository implements Repository {
 
   @override
   Future<Timetable> getTimetable(int section) async {
-    var timetable = await gbuDao.getTimetable(section);
-    Hive.box(Constants.appBox)
-        .put(Constants.timeTableFetchKey, DateTime.now().toString());
-    if (timetable == null) {
-      timetable = await gbuApi.getTimetable(section);
-      await Hive.box<Timetable>(Constants.timetableBox)
+    try {
+      final timetable = await gbuApi.getTimetable(section);
+      (await Hive.openBox(Constants.appBox))
+          .put(Constants.timeTableFetchKey, DateTime.now().toString());
+      (await Hive.openBox<Timetable>(Constants.timetableBox))
           .put('$section', timetable);
       return timetable;
-    } else {
-      return gbuDao.getTimetable(section);
+    } on Failure {
+      final tt = await gbuDao.getTimetable(section);
+      if (tt.days.isNotEmpty) {
+        return tt;
+      } else {
+        throw Failure(
+            "Cant Find Any Data. Check your Internet Connection, Trash!");
+      }
     }
   }
 }
