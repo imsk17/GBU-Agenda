@@ -130,13 +130,20 @@ class TimetableScreen extends ConsumerWidget {
               (day) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ListView.builder(
-                    itemCount: (d.days[day]).length,
-                    itemBuilder: (context, index) {
-                      return ClassCard(
-                        d.days[day][index],
-                      );
-                    },
+                  child: RefreshIndicator(
+                    color: Colors.white,
+                    backgroundColor: theme.accentColor,
+                    onRefresh: () => context.refresh(
+                      DataProviders.timeTable(section.sectionId),
+                    ),
+                    child: ListView.builder(
+                      itemCount: (d.days[day]).length,
+                      itemBuilder: (context, index) {
+                        return ClassCard(
+                          d.days[day][index],
+                        );
+                      },
+                    ),
                   ),
                 );
               },
