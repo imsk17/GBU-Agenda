@@ -6,7 +6,7 @@ class GbuAgendaTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 30.0),
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 55.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -27,7 +27,7 @@ class GbuAgendaTitle extends StatelessWidget {
           ),
           Text(
             "A Schedule App for Gautam Buddha University that does’nt suck.",
-            style: theme.textTheme.headline4,
+            style: theme.textTheme.headline2,
             textAlign: TextAlign.center,
           )
         ],

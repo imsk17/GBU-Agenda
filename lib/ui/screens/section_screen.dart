@@ -79,7 +79,7 @@ class SectionSelector extends ConsumerWidget {
                           value: schoolSelector.school,
                           hint: Text(
                             "Select a Value",
-                            style: theme.textTheme.headline4,
+                            style: theme.textTheme.headline2,
                           ),
                           underline: Container(),
                           dropdownColor: theme.scaffoldBackgroundColor,
@@ -94,7 +94,7 @@ class SectionSelector extends ConsumerWidget {
                                     child: Text(
                                       "${e.sectionName} - Semester - ${e.semester}",
                                       overflow: TextOverflow.ellipsis,
-                                      style: theme.textTheme.headline6.copyWith(
+                                      style: theme.textTheme.headline3.copyWith(
                                         color: theme.accentColor,
                                       ),
                                     ),
@@ -135,8 +135,8 @@ class SectionSelector extends ConsumerWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "Next Up, Section",
-                      style: theme.textTheme.headline4,
+                      "Lets See The Timetable",
+                      style: theme.textTheme.headline3,
                     ),
                     const Icon(
                       Icons.chevron_right,

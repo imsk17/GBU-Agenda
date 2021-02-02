@@ -24,11 +24,11 @@ class ClassCard extends StatelessWidget {
               children: [
                 RichText(
                   text: TextSpan(
-                    style: theme.textTheme.headline4,
+                    style: theme.textTheme.headline3,
                     text: _class.subject.name,
                     children: [
                       TextSpan(
-                        style: theme.textTheme.headline4.copyWith(
+                        style: theme.textTheme.headline3.copyWith(
                           color: theme.accentColor,
                         ),
                         text: " (${_class.subject.code})",
@@ -59,7 +59,7 @@ class ClassCard extends StatelessWidget {
                       ),
                       Text(
                         kClassTimingsMap[_class.period],
-                        style: theme.textTheme.headline6.copyWith(
+                        style: theme.textTheme.headline3.copyWith(
                           color: Colours.timing,
                           fontSize: 14,
                         ),

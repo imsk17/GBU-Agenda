@@ -74,7 +74,7 @@ class SchoolSelector extends ConsumerWidget {
                           value: schoolSelector.school,
                           hint: Text(
                             "Select a Value",
-                            style: theme.textTheme.headline4,
+                            style: theme.textTheme.headline3,
                           ),
                           underline: Container(),
                           dropdownColor: theme.scaffoldBackgroundColor,
@@ -90,12 +90,12 @@ class SchoolSelector extends ConsumerWidget {
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Text('School of ',
-                                            style: theme.textTheme.headline6),
+                                            style: theme.textTheme.headline3),
                                         Flexible(
                                           child: Text(
                                             e.fullName.trim(),
                                             overflow: TextOverflow.ellipsis,
-                                            style: theme.textTheme.headline6
+                                            style: theme.textTheme.headline3
                                                 .copyWith(
                                               color: theme.accentColor,
                                             ),
@@ -139,7 +139,7 @@ class SchoolSelector extends ConsumerWidget {
                   children: [
                     Text(
                       "Next Up, Section",
-                      style: theme.textTheme.headline4,
+                      style: theme.textTheme.headline3,
                     ),
                     const Icon(
                       Icons.chevron_right,

@@ -33,7 +33,7 @@ class TimetableScreen extends ConsumerWidget {
               alignment: Alignment.bottomCenter,
               child: Text(
                 "Last Updated: ${timeago.format(DateTime.parse(Hive.box(Constants.appBox).get(Constants.timeTableFetchKey) as String))} ",
-                style: theme.textTheme.headline6.copyWith(fontSize: 12),
+                style: theme.textTheme.headline3.copyWith(fontSize: 13),
               ),
             ),
           ),
@@ -44,8 +44,11 @@ class TimetableScreen extends ConsumerWidget {
               tabs: d.days.keys.map(
                 (key) {
                   return Tab(
-                    text: kDaysMap[key],
                     key: Key(kDaysMap[key]),
+                    child: Text(
+                      kDaysMap[key],
+                      style: theme.textTheme.headline3,
+                    ),
                   );
                 },
               ).toList(),
@@ -59,12 +62,13 @@ class TimetableScreen extends ConsumerWidget {
                   children: [
                     TextSpan(
                       text: 'GBU',
-                      style: theme.textTheme.headline2
+                      style: theme.textTheme.headline1
                           .copyWith(color: theme.accentColor, fontSize: 22),
                     ),
                     TextSpan(
                       text: 'Agenda',
-                      style: theme.textTheme.headline2.copyWith(fontSize: 22),
+                      style: theme.textTheme.headline1
+                          .copyWith(fontSize: 22, color: Colors.white),
                     ),
                   ],
                 ),
@@ -82,7 +86,7 @@ class TimetableScreen extends ConsumerWidget {
                         Text(
                           "School - ",
                           style:
-                              theme.textTheme.headline6.copyWith(fontSize: 16),
+                              theme.textTheme.headline2.copyWith(fontSize: 16),
                         ),
                         GestureDetector(
                           onTap: () {
@@ -90,21 +94,21 @@ class TimetableScreen extends ConsumerWidget {
                           },
                           child: Text(
                             section.school,
-                            style: theme.textTheme.headline6.copyWith(
+                            style: theme.textTheme.headline2.copyWith(
                                 color: theme.accentColor, fontSize: 16),
                           ),
                         ),
                       ],
                     ),
                     const SizedBox(
-                      height: 8,
+                      height: 2,
                     ),
                     Row(
                       children: [
                         Text(
                           "Course - ",
                           style:
-                              theme.textTheme.headline6.copyWith(fontSize: 16),
+                              theme.textTheme.headline2.copyWith(fontSize: 16),
                         ),
                         GestureDetector(
                           onTap: () {
@@ -112,7 +116,7 @@ class TimetableScreen extends ConsumerWidget {
                           },
                           child: Text(
                             section.sectionName,
-                            style: theme.textTheme.headline6.copyWith(
+                            style: theme.textTheme.headline3.copyWith(
                               color: theme.accentColor,
                               fontSize: 16,
                             ),

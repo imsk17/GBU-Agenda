@@ -45,9 +45,6 @@ flutter:
     - assets/gbu.png
   uses-material-design: true
   fonts:
-    - family: ApercuPro
-      fonts:
-        - asset: fonts/ApercuPro/Apercu Pro Regular.ttf
     - family: TTCommons
       fonts:
         - asset: fonts/TTCommons/TT Commons Regular.otf

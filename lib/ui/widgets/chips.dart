@@ -20,7 +20,7 @@ class ClassChip extends StatelessWidget {
               padding: const EdgeInsets.all(6.0),
               child: Text(
                 text,
-                style: theme.textTheme.headline6.copyWith(
+                style: theme.textTheme.headline3.copyWith(
                   fontSize: 12,
                 ),
               ),

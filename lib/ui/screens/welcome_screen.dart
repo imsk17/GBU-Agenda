@@ -43,7 +43,7 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Let's Get Started",
-                    style: theme.textTheme.headline6,
+                    style: theme.textTheme.headline3,
                   ),
                   const Icon(
                     Icons.chevron_right_rounded,

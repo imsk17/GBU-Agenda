@@ -8,7 +8,7 @@ abstract class Colours {
   static const timing = Color(0xFFB6ADAD);
 }
 
-var theme = ThemeData.dark().copyWith(
+var theme = ThemeData(
   tabBarTheme: const TabBarTheme(
     indicator: BoxDecoration(
       border: Border(
@@ -38,15 +38,9 @@ var theme = ThemeData.dark().copyWith(
         fontFamily: 'NeutrifPro',
         fontWeight: FontWeight.w500),
     headline2:
-        TextStyle(fontSize: 45, color: Colors.white, fontFamily: 'NeutrifPro'),
-    headline3:
         TextStyle(fontSize: 20, color: Colors.white, fontFamily: 'TTCommons'),
-    headline4:
+    headline3:
         TextStyle(fontSize: 18, color: Colors.white, fontFamily: 'TTCommons'),
-    headline5:
-        TextStyle(fontSize: 20, color: Colors.white, fontFamily: 'ApercuPro'),
-    headline6:
-        TextStyle(fontSize: 18, color: Colors.white, fontFamily: 'ApercuPro'),
   ),
   iconTheme: const IconThemeData(
     color: Colors.white,
