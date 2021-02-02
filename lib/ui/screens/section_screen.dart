@@ -123,11 +123,9 @@ class SectionSelector extends ConsumerWidget {
                     Navigator.pushReplacementNamed(context, "/timetable");
                   } else {
                     Scaffold.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text(
-                          "Pfft!.. Dumb human, Pick a section first.",
-                        ),
-                      ),
+                      const ErrorSnackbar(
+                        message: "Pfft!.. Dumb human, Pick a section first.",
+                      ).build(context),
                     );
                   }
                 },
