@@ -1,24 +1,28 @@
-# GbuAgenda
+<div align="center">
 
-A New Schedule App for Gautam Buddha University that does'nt suck.
+<h1>GbuAgenda</h1>
+
+A New Schedule App for Gautam Buddha University that doesn't suck.
+
+![Flutter CI](https://github.com/imsk17/GBU-Agenda/workflows/Flutter%20CI/badge.svg)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/imsk17/Gbu-Agenda/graphs/commit-activity)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Last Commit](https://img.shields.io/github/last-commit/imsk17/gbu-agenda)](https://github.com/imsk17/GBU-Agenda/commits/master)
+[![Stars](https://img.shields.io/github/stars/imsk17/gbu-agenda?style=social)](https://github.com/imsk17/gbu-agenda/stargazers)
+</div>
+
 
 ## Download
 
-Latest Releases Can be Found in This Repo's Releases Section.
+The Latest Releases Can be Found in This Repo's Releases Section.
 
 ## Screenshots
 
-#### Welcome Screen
-<img src="./art/welcome_screen.jpg" alt="welcome_screen" width="150"/> 
-
-#### School Screen
-<img src="./art/school_screen.jpg" alt="school_screen" width="150"/>
-
-#### Section Screen
-<img src="./art/section_screen.jpg" alt="section_screen" width="150"/>
-
-#### Timetable Screen
-<img src="./art/timetable_screen.jpg" alt="timetable_screen" width="150"/>
+| | | 
+|:-------------------------:|:-------------------------:|
+|<img width="200" alt="Welcome Screen" src="./art/welcome_screen.jpg">  |  <img width="200" alt="School Screen" src="./art/school_screen.jpg">|
+|<img width="200" alt="Section Screen" src="./art/section_screen.jpg">  |  <img width="200" alt="Timetable Screen" src="./art/timetable_screen.jpg">|
 
 
 GBUAgenda is an app that attempts to use the latest cutting edge libraries and tools. As a summary:
@@ -36,13 +40,6 @@ This project uses [lint](https://pub.dev/packages/lint), for Linting in Dart.
 
 If you find that one of your pull reviews does not pass the CI server check due to a code style conflict, you can
 easily fix it by running: `flutter format --set-exit-if-changed . && flutter analyze .`
-
-## Flutter development
-
-GBUAgenda is an app that attempts to use the latest cutting edge libraries and tools. As a summary:
-
-- Uses [Riverpod](https://riverpod.dev) for State Management needs.
-- Uses [GetIt](https://pub.dev/packages/get_it) for Dependency Injection.
 
 ## Contributions
 
