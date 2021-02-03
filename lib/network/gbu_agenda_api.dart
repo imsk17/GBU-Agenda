@@ -27,11 +27,13 @@ class GBUAgendaAPI implements API {
         schools.add(school);
       }
     } on SocketException {
-      throw Failure('Your internet is trash.');
+      throw Failure('Do You Even Have Internet, Lowlife?');
     } on FormatException {
-      throw Failure('My Server is crazy. Please retry later.');
+      throw Failure('My Server is Trash (just like you). Try Later!');
     } on DioError {
-      throw Failure('Bruh Moment, My Server is trash. Use the Website');
+      throw Failure(
+        'What a Trashy Internet Connection, Commit Suicide Already Man!',
+      );
     }
     return schools;
   }
@@ -46,11 +48,13 @@ class GBUAgendaAPI implements API {
         sections.add(section);
       }
     } on SocketException {
-      throw Failure('Your internet is trash.');
+      throw Failure('Do You Even Have Internet, Lowlife?');
     } on FormatException {
-      throw Failure('My Server is crazy. Please retry later.');
+      throw Failure('My Server is Trash (just like you). Try Later!');
     } on DioError {
-      throw Failure('Bruh Moment, My Server is trash. Use the Website');
+      throw Failure(
+        'What a Trashy Internet Connection, Commit Suicide Already Man!',
+      );
     }
     return sections;
   }
@@ -62,11 +66,13 @@ class GBUAgendaAPI implements API {
       final response = await _dioClient.get('/subjects?subject=$code');
       subject = Subject.fromJson(response.data as Map<String, dynamic>);
     } on SocketException {
-      throw Failure('Your internet is trash.');
+      throw Failure('Do You Even Have Internet, Lowlife?');
     } on FormatException {
-      throw Failure('My Server is crazy. Please retry later.');
+      throw Failure('My Server is Trash (just like you). Try Later!');
     } on DioError {
-      throw Failure('Bruh Moment, My Server is trash. Use the Website');
+      throw Failure(
+        'What a Trashy Internet Connection, Commit Suicide Already Man!',
+      );
     }
     return subject;
   }
@@ -78,11 +84,13 @@ class GBUAgendaAPI implements API {
       final response = await _dioClient.get('/teachers?teacher_id=$teacherId');
       teacher = Teacher.fromJson(response.data as Map<String, dynamic>);
     } on SocketException {
-      throw Failure('Your internet is trash.');
+      throw Failure('Do You Even Have Internet, Lowlife?');
     } on FormatException {
-      throw Failure('My Server is crazy. Please retry later.');
+      throw Failure('My Server is Trash (just like you). Try Later!');
     } on DioError {
-      throw Failure('Bruh Moment, My Server is trash. Use the Website');
+      throw Failure(
+        'What a Trashy Internet Connection, Commit Suicide Already Man!',
+      );
     }
     return teacher;
   }
@@ -94,11 +102,13 @@ class GBUAgendaAPI implements API {
       final response = await _dioClient.get('/timetable?section=$section');
       timetable = Timetable.fromJson(response.data as Map<String, dynamic>);
     } on SocketException {
-      throw Failure('Your internet is trash.');
-    } on FormatException catch (e) {
-      throw Failure('My Server is crazy. Please retry later. $e');
+      throw Failure('Do You Even Have Internet, Lowlife?');
+    } on FormatException {
+      throw Failure('My Server is Trash (just like you). Try Later!');
     } on DioError {
-      throw Failure('Bruh Moment, My Server is trash. Use the Website');
+      throw Failure(
+        'What a Trashy Internet Connection, Commit Suicide Already Man!',
+      );
     }
     return timetable;
   }
