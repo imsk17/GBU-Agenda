@@ -7,7 +7,7 @@ class ClassChip extends StatelessWidget {
   const ClassChip({this.text});
   @override
   Widget build(BuildContext context) {
-    if (text == "G - 0") {
+    if (text == "G-0") {
       return Container();
     } else {
       return Padding(
@@ -15,14 +15,12 @@ class ClassChip extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(8.0),
           child: Container(
-            color: const Color(0x6636B6DE),
+            color: Colours.chips,
             child: Padding(
               padding: const EdgeInsets.all(6.0),
               child: Text(
                 text,
-                style: theme.textTheme.headline3.copyWith(
-                  fontSize: 12,
-                ),
+                style: theme.textTheme.headline6,
               ),
             ),
           ),

@@ -25,10 +25,7 @@ class WelcomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                const Hero(
-                  tag: 'Title',
-                  child: GbuAgendaTitle(),
-                )
+                const GbuAgendaTitle()
               ],
             ),
             MaterialButton(

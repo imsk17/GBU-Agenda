@@ -96,9 +96,7 @@ class SchoolSelector extends ConsumerWidget {
                                             e.fullName.trim(),
                                             overflow: TextOverflow.ellipsis,
                                             style: theme.textTheme.headline3
-                                                .copyWith(
-                                              color: theme.accentColor,
-                                            ),
+                                                .toAccent(),
                                           ),
                                         ),
                                       ],

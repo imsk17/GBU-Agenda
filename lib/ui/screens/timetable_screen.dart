@@ -1,5 +1,5 @@
-import 'package:GbuAgenda/providers/data_providers.dart';
 import 'package:GbuAgenda/notifiers/section_selector.dart';
+import 'package:GbuAgenda/providers/data_providers.dart';
 import 'package:GbuAgenda/ui/widgets/class_card.dart';
 import 'package:GbuAgenda/utils/constants.dart';
 import 'package:GbuAgenda/utils/theme_data.dart';
@@ -77,7 +77,7 @@ class TimetableScreen extends ConsumerWidget {
             actions: [
               Container(
                 padding: const EdgeInsets.all(8.0),
-                margin: const EdgeInsets.fromLTRB(0, 0, 8, 0),
+                margin: const EdgeInsets.only(right: 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -94,10 +94,9 @@ class TimetableScreen extends ConsumerWidget {
                           },
                           child: Text(
                             section.school,
-                            style: theme.textTheme.headline2.copyWith(
-                                color: theme.accentColor, fontSize: 16),
+                            style: theme.textTheme.headline4.toAccent(),
                           ),
-                        ),
+                        )
                       ],
                     ),
                     const SizedBox(
@@ -107,8 +106,7 @@ class TimetableScreen extends ConsumerWidget {
                       children: [
                         Text(
                           "Course - ",
-                          style:
-                              theme.textTheme.headline2.copyWith(fontSize: 16),
+                          style: theme.textTheme.headline4,
                         ),
                         GestureDetector(
                           onTap: () {
@@ -116,10 +114,7 @@ class TimetableScreen extends ConsumerWidget {
                           },
                           child: Text(
                             section.sectionName,
-                            style: theme.textTheme.headline3.copyWith(
-                              color: theme.accentColor,
-                              fontSize: 16,
-                            ),
+                            style: theme.textTheme.headline4.toAccent(),
                           ),
                         ),
                       ],

@@ -13,7 +13,7 @@ class MadeByMe extends StatelessWidget {
             "Made with",
             style: theme.textTheme.headline3,
           ),
-          Image.asset("assets/icons/heart.png", scale: 3,),
+          Image.asset("assets/icons/heart.png", scale: 3),
           Text(
             "by",
             style: theme.textTheme.headline3,

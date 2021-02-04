@@ -14,7 +14,7 @@ class GbuAgendaTitle extends StatelessWidget {
             text: TextSpan(
               children: [
                 TextSpan(
-                  text: 'GBU',
+                  text: 'GBU ',
                   style: theme.textTheme.headline1
                       .copyWith(color: theme.accentColor),
                 ),

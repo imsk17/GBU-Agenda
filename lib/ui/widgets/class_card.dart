@@ -14,7 +14,7 @@ class ClassCard extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
-      color: const Color(0xFF272846),
+      color: Colours.lightScaffold,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -28,9 +28,7 @@ class ClassCard extends StatelessWidget {
                     text: _class.subject.name,
                     children: [
                       TextSpan(
-                        style: theme.textTheme.headline3.copyWith(
-                          color: theme.accentColor,
-                        ),
+                        style: theme.textTheme.headline3.toAccent(),
                         text: " (${_class.subject.code})",
                       )
                     ],
@@ -53,16 +51,14 @@ class ClassCard extends StatelessWidget {
                             ),
                           ),
                           ClassChip(text: _class.room.name),
-                          ClassChip(text: "G - ${_class.batch}"),
+                          ClassChip(text: "G-${_class.batch}"),
                           ClassChip(text: _class.teacher.abbr.toUpperCase()),
                         ],
                       ),
                       Text(
                         kClassTimingsMap[_class.period],
-                        style: theme.textTheme.headline3.copyWith(
-                          color: Colours.timing,
-                          fontSize: 14,
-                        ),
+                        style: theme.textTheme.headline5
+                            .copyWith(color: Colours.timing),
                       ),
                     ],
                   ),

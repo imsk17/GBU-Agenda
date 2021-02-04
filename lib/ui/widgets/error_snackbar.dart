@@ -9,7 +9,7 @@ class ErrorSnackbar extends StatelessWidget {
     return SnackBar(
       content: Text(
         message,
-        style: theme.textTheme.headline6.copyWith(fontSize: 15),
+        style: theme.textTheme.headline4,
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4),

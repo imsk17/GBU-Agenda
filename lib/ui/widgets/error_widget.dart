@@ -12,13 +12,13 @@ class NetError extends StatelessWidget {
       children: [
         const Icon(
           Icons.network_check_outlined,
-          color: Color(0xffE57A7A),
+          color: Colours.error,
           size: 100,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: Text(
-            "Your internet connection is Trash.\nPlease Consider Upgrading Lol",
+            "Your internet connection is Trash.\n Consider Upgrading Lol.",
             style: theme.textTheme.headline6.copyWith(color: Colours.error),
             textAlign: TextAlign.center,
           ),

@@ -6,6 +6,13 @@ abstract class Colours {
   static const lightScaffold = Color(0xFF272846);
   static const error = Color(0xffE57A7A);
   static const timing = Color(0xFFB6ADAD);
+  static const chips = Color(0x6636B6DE);
+}
+
+extension Style on TextStyle {
+  TextStyle toAccent() {
+    return apply(color: theme.accentColor);
+  }
 }
 
 var theme = ThemeData(
@@ -41,6 +48,12 @@ var theme = ThemeData(
         TextStyle(fontSize: 20, color: Colors.white, fontFamily: 'TTCommons'),
     headline3:
         TextStyle(fontSize: 18, color: Colors.white, fontFamily: 'TTCommons'),
+    headline4:
+        TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'TTCommons'),
+    headline5:
+        TextStyle(fontSize: 14, color: Colors.white, fontFamily: 'TTCommons'),
+    headline6:
+        TextStyle(fontSize: 12, color: Colors.white, fontFamily: 'TTCommons'),
   ),
   iconTheme: const IconThemeData(
     color: Colors.white,

@@ -94,9 +94,8 @@ class SectionSelector extends ConsumerWidget {
                                     child: Text(
                                       "${e.sectionName} - Semester - ${e.semester}",
                                       overflow: TextOverflow.ellipsis,
-                                      style: theme.textTheme.headline3.copyWith(
-                                        color: theme.accentColor,
-                                      ),
+                                      style:
+                                          theme.textTheme.headline3.toAccent(),
                                     ),
                                   ),
                                 ),
