@@ -34,14 +34,16 @@ jobs:
       - name: Build APK For Release
         run: |
           flutter build apk --release --split-per-abi
-          ls build/app/outputs/apk/release
         env:
             KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
             ALIAS_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
-
       # Upload generated apk to the artifacts.
-      - uses: ncipollo/release-action@v1
+      - uses: marvinpinto/action-automatic-releases@latest
         with:
-          tag: ${{ env.APP_VERSION }}
-          artifacts: "build/app/outputs/apk/release/*.apk"
-          token: ${{ secrets.PANCAKE }}
+           prerelease: false
+           repo_token: ${{ secrets.PANCAKE }}
+           automatic_release_tag: "latest"
+           title: "App Releases"
+           files: |
+             LICENSE
+             build/app/outputs/apk/release/*.apk
