@@ -19,15 +19,18 @@ class TimetableAdapter extends TypeAdapter<Timetable> {
     return Timetable(
       days: (fields[0] as Map)?.map((dynamic k, dynamic v) =>
           MapEntry(k as String, (v as List)?.cast<Class>())),
+      showTt: fields[1] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, Timetable obj) {
     writer
-      ..writeByte(1)
+      ..writeByte(2)
       ..writeByte(0)
-      ..write(obj.days);
+      ..write(obj.days)
+      ..writeByte(1)
+      ..write(obj.showTt);
   }
 
   @override
@@ -54,9 +57,11 @@ Timetable _$TimetableFromJson(Map<String, dynamic> json) {
               .map((e) => Class.fromJson(e as Map<String, dynamic>))
               .toList()),
     ),
+    showTt: json['show_tt'] as int,
   );
 }
 
 Map<String, dynamic> _$TimetableToJson(Timetable instance) => <String, dynamic>{
       'days': instance.days,
+      'show_tt': instance.showTt,
     };

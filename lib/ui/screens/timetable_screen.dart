@@ -124,30 +124,50 @@ class TimetableScreen extends ConsumerWidget {
               )
             ],
           ),
-          body: TabBarView(
-            children: d.days.keys.map(
-              (day) {
-                return Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RefreshIndicator(
-                    color: Colors.white,
-                    backgroundColor: theme.accentColor,
-                    onRefresh: () => context.refresh(
-                      DataProviders.timeTable(section.sectionId),
+          body: d.showTt == 0
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      Icons.warning,
+                      size: 50,
                     ),
-                    child: ListView.builder(
-                      itemCount: (d.days[day]).length,
-                      itemBuilder: (context, index) {
-                        return ClassCard(
-                          d.days[day][index],
-                        );
-                      },
+                    const SizedBox(
+                      height: 25,
                     ),
-                  ),
-                );
-              },
-            ).toList(),
-          ),
+                    Center(
+                      child: Text(
+                        "No Timetable For You.\nJK! Your timetable is not in Database.",
+                        style: theme.textTheme.headline3,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                )
+              : TabBarView(
+                  children: d.days.keys.map(
+                    (day) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: RefreshIndicator(
+                          color: Colors.white,
+                          backgroundColor: theme.accentColor,
+                          onRefresh: () => context.refresh(
+                            DataProviders.timeTable(section.sectionId),
+                          ),
+                          child: ListView.builder(
+                            itemCount: (d.days[day]).length,
+                            itemBuilder: (context, index) {
+                              return ClassCard(
+                                d.days[day][index],
+                              );
+                            },
+                          ),
+                        ),
+                      );
+                    },
+                  ).toList(),
+                ),
         ),
       ),
       loading: () => Scaffold(
