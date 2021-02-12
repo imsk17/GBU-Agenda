@@ -44,11 +44,15 @@ flutter:
     - assets/icons/heart.png
     - assets/gbu.png
   uses-material-design: true
-  # fonts:
-  #   - family: TTCommons
-  #     fonts:
-  #       - asset: fonts/TTCommons/TT Commons Regular.otf
-  #   - family: NeutrifPro
-  #     fonts:
-  #       - asset: fonts/NeutrifPro/NeutrifPro-Medium.otf
-  #         weight: 500
+  fonts:
+    - family: Aileron
+      fonts:
+        - asset: fonts/aileron/Aileron-Heavy.otf
+          weight: 900
+    - family: Aileron
+      fonts:
+        - asset: fonts/aileron/Aileron-Regular.otf
+    - family: Aileron
+      fonts:
+        - asset: fonts/aileron/Aileron-SemiBold.otf
+          weight: 500
