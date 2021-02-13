@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 abstract class Colours {
-  static const accent = Color(0xFF36B6DE);
-  static const scaffold = Color(0xFF1C1F3E);
-  static const lightScaffold = Color(0xFF272846);
+  static const accent = Color(0xFFF7484E);
+  static const scaffold = Color(0xFF292929);
+  static const lightScaffold = Color(0x26757575);
   static const error = Color(0xffE57A7A);
   static const timing = Color(0xFFB6ADAD);
-  static const chips = Color(0x6636B6DE);
+  static const chips = Color(0x66F7484E);
 }
 
 extension Style on TextStyle {
@@ -42,18 +42,18 @@ var theme = ThemeData(
     headline1: TextStyle(
         fontSize: 55,
         color: Colors.white,
-        fontFamily: 'NeutrifPro',
-        fontWeight: FontWeight.w500),
+        fontFamily: 'Aileron',
+        fontWeight: FontWeight.w900),
     headline2:
-        TextStyle(fontSize: 20, color: Colors.white, fontFamily: 'TTCommons'),
+        TextStyle(fontSize: 18, color: Colors.white, fontFamily: 'Aileron'),
     headline3:
-        TextStyle(fontSize: 18, color: Colors.white, fontFamily: 'TTCommons'),
+        TextStyle(fontSize: 15, color: Colors.white, fontFamily: 'Aileron'),
     headline4:
-        TextStyle(fontSize: 16, color: Colors.white, fontFamily: 'TTCommons'),
+        TextStyle(fontSize: 14, color: Colors.white, fontFamily: 'Aileron'),
     headline5:
-        TextStyle(fontSize: 14, color: Colors.white, fontFamily: 'TTCommons'),
+        TextStyle(fontSize: 12, color: Colors.white, fontFamily: 'Aileron'),
     headline6:
-        TextStyle(fontSize: 12, color: Colors.white, fontFamily: 'TTCommons'),
+        TextStyle(fontSize: 11, color: Colors.white, fontFamily: 'Aileron'),
   ),
   iconTheme: const IconThemeData(
     color: Colors.white,

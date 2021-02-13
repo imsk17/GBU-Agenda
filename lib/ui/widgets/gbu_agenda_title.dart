@@ -25,9 +25,10 @@ class GbuAgendaTitle extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(height: 18),
           Text(
             "A Schedule App for Gautam Buddha University that does’nt suck.",
-            style: theme.textTheme.headline2,
+            style: theme.textTheme.headline3,
             textAlign: TextAlign.center,
           )
         ],

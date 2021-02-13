@@ -25,7 +25,7 @@ class SchoolScreen extends StatelessWidget {
             ),
             Text("Please Select Your School", style: theme.textTheme.headline3),
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 25),
+              margin: const EdgeInsets.symmetric(vertical: 20),
               child: SchoolSelector(),
             ),
           ],

@@ -24,11 +24,11 @@ class ClassCard extends StatelessWidget {
               children: [
                 RichText(
                   text: TextSpan(
-                    style: theme.textTheme.headline3,
+                    style: theme.textTheme.headline4,
                     text: _class.subject.name,
                     children: [
                       TextSpan(
-                        style: theme.textTheme.headline3.toAccent(),
+                        style: theme.textTheme.headline4.toAccent(),
                         text: " (${_class.subject.code})",
                       )
                     ],

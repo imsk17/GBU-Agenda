@@ -29,7 +29,7 @@ class SectionScreen extends StatelessWidget {
               style: theme.textTheme.headline3,
             ),
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 40),
+              margin: const EdgeInsets.symmetric(vertical: 20),
               child: SectionSelector(),
             ),
           ],
@@ -69,7 +69,7 @@ class SectionSelector extends ConsumerWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Container(
-                    color: const Color(0xFF272846),
+                    color: Colours.lightScaffold,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 12.0, vertical: 8.0),
                     width: MediaQuery.of(context).size.width * 0.8,
@@ -79,7 +79,7 @@ class SectionSelector extends ConsumerWidget {
                           value: schoolSelector.school,
                           hint: Text(
                             "Select a Value",
-                            style: theme.textTheme.headline2,
+                            style: theme.textTheme.headline3,
                           ),
                           underline: Container(),
                           dropdownColor: theme.scaffoldBackgroundColor,
