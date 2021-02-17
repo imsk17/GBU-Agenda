@@ -43,7 +43,7 @@ class SchoolSelector extends ConsumerWidget {
     return ProviderListener<AsyncValue<List<School>>>(
       onChange: (context, value) {
         if (value is AsyncError) {
-          Scaffold.of(context).showSnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(
             ErrorSnackbar(
               message: (value as AsyncError).error.toString(),
             ).build(
@@ -125,7 +125,7 @@ class SchoolSelector extends ConsumerWidget {
                         .persistToDatabase();
                     Navigator.of(context).pushReplacementNamed("/section");
                   } else {
-                    Scaffold.of(context).showSnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(
                       const ErrorSnackbar(
                         message: "Pfft!.. Dumb human, Pick a school first.",
                       ).build(context),

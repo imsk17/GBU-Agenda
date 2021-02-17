@@ -51,7 +51,7 @@ class SectionSelector extends ConsumerWidget {
     return ProviderListener<AsyncValue<List<Section>>>(
       onChange: (context, value) {
         if (value is AsyncError) {
-          Scaffold.of(context).showSnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(
             ErrorSnackbar(
               message: (value as AsyncError).error.toString(),
             ).build(context),
@@ -121,7 +121,7 @@ class SectionSelector extends ConsumerWidget {
                         .persistToDatabase();
                     Navigator.pushReplacementNamed(context, "/timetable");
                   } else {
-                    Scaffold.of(context).showSnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(
                       const ErrorSnackbar(
                         message: "Pfft!.. Dumb human, Pick a section first.",
                       ).build(context),

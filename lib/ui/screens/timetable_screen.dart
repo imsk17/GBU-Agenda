@@ -6,6 +6,7 @@ import 'package:GbuAgenda/utils/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
+import 'package:GbuAgenda/utils/extensions.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class TimetableScreen extends ConsumerWidget {
@@ -32,7 +33,7 @@ class TimetableScreen extends ConsumerWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
-                "Last Updated: ${timeago.format(DateTime.parse(Hive.box(Constants.appBox).get(Constants.timeTableFetchKey) as String))} ",
+                "Last Updated: ${(timeago.format(DateTime.parse(Hive.box(Constants.appBox).get(Constants.timeTableFetchKey) as String))).titleCase} ",
                 style: theme.textTheme.headline3.copyWith(fontSize: 13),
               ),
             ),
