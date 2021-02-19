@@ -83,11 +83,12 @@ class TimetableScreen extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "School - ",
-                          style:
-                              theme.textTheme.headline2.copyWith(fontSize: 16),
+                          style: theme.textTheme.headline4
+                              .copyWith(fontWeight: FontWeight.bold),
                         ),
                         GestureDetector(
                           onTap: () {
@@ -95,7 +96,9 @@ class TimetableScreen extends ConsumerWidget {
                           },
                           child: Text(
                             section.school,
-                            style: theme.textTheme.headline4.toAccent(),
+                            style: theme.textTheme.headline4
+                                .toAccent()
+                                .copyWith(fontWeight: FontWeight.bold),
                           ),
                         )
                       ],
@@ -104,18 +107,22 @@ class TimetableScreen extends ConsumerWidget {
                       height: 2,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Course - ",
-                          style: theme.textTheme.headline4,
+                          style: theme.textTheme.headline4
+                              .copyWith(fontWeight: FontWeight.bold),
                         ),
                         GestureDetector(
                           onTap: () {
                             Navigator.pushReplacementNamed(context, "/section");
                           },
                           child: Text(
-                            section.sectionName,
-                            style: theme.textTheme.headline4.toAccent(),
+                            '${section.programName} ${section.sectionId}',
+                            style: theme.textTheme.headline4
+                                .toAccent()
+                                .copyWith(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
