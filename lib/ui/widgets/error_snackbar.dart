@@ -9,12 +9,12 @@ class ErrorSnackbar extends StatelessWidget {
     return SnackBar(
       content: Text(
         message,
-        style: theme.textTheme.headline4,
+        style: theme.textTheme.headline4.toAccent(),
       ),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4),
       ),
-      backgroundColor: Colours.error,
+      backgroundColor: Colors.grey[300],
     );
   }
 }
