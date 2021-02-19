@@ -91,11 +91,20 @@ class SectionSelector extends ConsumerWidget {
                                   child: SizedBox(
                                     width: MediaQuery.of(context).size.width *
                                         0.65,
-                                    child: Text(
-                                      "${e.sectionName} - Semester - ${e.semester}",
-                                      overflow: TextOverflow.ellipsis,
-                                      style:
-                                          theme.textTheme.headline3.toAccent(),
+                                    child: OverflowBar(
+                                      children: [
+                                        Text(
+                                          "${e.programName} ",
+                                          overflow: TextOverflow.ellipsis,
+                                          style: theme.textTheme.headline4,
+                                        ),
+                                        Text(
+                                          "${e.sectionName.trim()} - Sem - ${e.semester}",
+                                          overflow: TextOverflow.ellipsis,
+                                          style: theme.textTheme.headline4
+                                              .toAccent(),
+                                        )
+                                      ],
                                     ),
                                   ),
                                 ),
