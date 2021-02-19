@@ -29,7 +29,7 @@ class SectionScreen extends StatelessWidget {
               style: theme.textTheme.headline3,
             ),
             Container(
-              margin: const EdgeInsets.symmetric(vertical: 40),
+              margin: const EdgeInsets.symmetric(vertical: 20),
               child: SectionSelector(),
             ),
           ],
@@ -51,7 +51,7 @@ class SectionSelector extends ConsumerWidget {
     return ProviderListener<AsyncValue<List<Section>>>(
       onChange: (context, value) {
         if (value is AsyncError) {
-          Scaffold.of(context).showSnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(
             ErrorSnackbar(
               message: (value as AsyncError).error.toString(),
             ).build(context),
@@ -69,7 +69,7 @@ class SectionSelector extends ConsumerWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Container(
-                    color: const Color(0xFF272846),
+                    color: Colours.lightScaffold,
                     padding: const EdgeInsets.symmetric(
                         horizontal: 12.0, vertical: 8.0),
                     width: MediaQuery.of(context).size.width * 0.8,
@@ -79,7 +79,7 @@ class SectionSelector extends ConsumerWidget {
                           value: schoolSelector.school,
                           hint: Text(
                             "Select a Value",
-                            style: theme.textTheme.headline2,
+                            style: theme.textTheme.headline3,
                           ),
                           underline: Container(),
                           dropdownColor: theme.scaffoldBackgroundColor,
@@ -91,11 +91,20 @@ class SectionSelector extends ConsumerWidget {
                                   child: SizedBox(
                                     width: MediaQuery.of(context).size.width *
                                         0.65,
-                                    child: Text(
-                                      "${e.sectionName} - Semester - ${e.semester}",
-                                      overflow: TextOverflow.ellipsis,
-                                      style:
-                                          theme.textTheme.headline3.toAccent(),
+                                    child: OverflowBar(
+                                      children: [
+                                        Text(
+                                          "${e.programName} ",
+                                          overflow: TextOverflow.ellipsis,
+                                          style: theme.textTheme.headline4,
+                                        ),
+                                        Text(
+                                          "${e.sectionName.trim()} - Sem - ${e.semester}",
+                                          overflow: TextOverflow.ellipsis,
+                                          style: theme.textTheme.headline4
+                                              .toAccent(),
+                                        )
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -121,7 +130,7 @@ class SectionSelector extends ConsumerWidget {
                         .persistToDatabase();
                     Navigator.pushReplacementNamed(context, "/timetable");
                   } else {
-                    Scaffold.of(context).showSnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(
                       const ErrorSnackbar(
                         message: "Pfft!.. Dumb human, Pick a section first.",
                       ).build(context),

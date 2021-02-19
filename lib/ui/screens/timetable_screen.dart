@@ -6,6 +6,7 @@ import 'package:GbuAgenda/utils/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
+import 'package:GbuAgenda/utils/extensions.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class TimetableScreen extends ConsumerWidget {
@@ -32,7 +33,7 @@ class TimetableScreen extends ConsumerWidget {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
-                "Last Updated: ${timeago.format(DateTime.parse(Hive.box(Constants.appBox).get(Constants.timeTableFetchKey) as String))} ",
+                "Last Updated: ${(timeago.format(DateTime.parse(Hive.box(Constants.appBox).get(Constants.timeTableFetchKey) as String))).titleCase} ",
                 style: theme.textTheme.headline3.copyWith(fontSize: 13),
               ),
             ),
@@ -82,11 +83,12 @@ class TimetableScreen extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "School - ",
-                          style:
-                              theme.textTheme.headline2.copyWith(fontSize: 16),
+                          style: theme.textTheme.headline4
+                              .copyWith(fontWeight: FontWeight.bold),
                         ),
                         GestureDetector(
                           onTap: () {
@@ -94,7 +96,9 @@ class TimetableScreen extends ConsumerWidget {
                           },
                           child: Text(
                             section.school,
-                            style: theme.textTheme.headline4.toAccent(),
+                            style: theme.textTheme.headline4
+                                .toAccent()
+                                .copyWith(fontWeight: FontWeight.bold),
                           ),
                         )
                       ],
@@ -103,18 +107,22 @@ class TimetableScreen extends ConsumerWidget {
                       height: 2,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Course - ",
-                          style: theme.textTheme.headline4,
+                          style: theme.textTheme.headline4
+                              .copyWith(fontWeight: FontWeight.bold),
                         ),
                         GestureDetector(
                           onTap: () {
                             Navigator.pushReplacementNamed(context, "/section");
                           },
                           child: Text(
-                            section.sectionName,
-                            style: theme.textTheme.headline4.toAccent(),
+                            '${section.programName} ${section.sectionId}',
+                            style: theme.textTheme.headline4
+                                .toAccent()
+                                .copyWith(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],

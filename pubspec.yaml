@@ -10,11 +10,11 @@ environment:
   sdk: ">=2.10.4 <3.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
   cupertino_icons: ^1.0.0
   dartz: ^0.9.2
   dio: ^3.0.10
+  flutter:
+    sdk: flutter
   flutter_riverpod: ^0.12.1
   get_it: ^5.0.1
   hive: ^1.4.4+1
@@ -24,10 +24,10 @@ dependencies:
   sentry_flutter: ^4.0.0-beta.1
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   build_runner: null
   flutter_launcher_icons: ^0.8.1
+  flutter_test:
+    sdk: flutter
   hive_generator: ^0.8.2
   injectable_generator: null
   # For Linting
@@ -45,10 +45,14 @@ flutter:
     - assets/gbu.png
   uses-material-design: true
   fonts:
-    - family: TTCommons
+    - family: Aileron
       fonts:
-        - asset: fonts/TTCommons/TT Commons Regular.otf
-    - family: NeutrifPro
+        - asset: fonts/aileron/Aileron-Heavy.otf
+          weight: 900
+    - family: Aileron
       fonts:
-        - asset: fonts/NeutrifPro/NeutrifPro-Medium.otf
+        - asset: fonts/aileron/Aileron-Regular.otf
+    - family: Aileron
+      fonts:
+        - asset: fonts/aileron/Aileron-SemiBold.otf
           weight: 500

@@ -1,7 +1,7 @@
 name: Flutter CI
 on:
   push:
-    branches: [master]
+    branches: [master, ui]
 
   workflow_dispatch:
 
@@ -20,15 +20,12 @@ jobs:
       # Setup the flutter environment.
       - uses: subosito/flutter-action@v1
         with:
-          channel: "stable"
+          channel: "dev"
       # Get flutter dependencies.
 
       - run: flutter pub get
       # Check for any formatting issues in the code.
       - run: flutter format --set-exit-if-changed .
-
-      # Statically analyze the Dart code for any errors.
-      - run: flutter analyze .
 
       # Build apk.
       - name: Build APK For Release
