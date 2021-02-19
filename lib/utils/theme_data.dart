@@ -16,6 +16,7 @@ extension Style on TextStyle {
 }
 
 var theme = ThemeData(
+  cardTheme: const CardTheme(elevation: 0),
   tabBarTheme: const TabBarTheme(
     indicator: BoxDecoration(
       border: Border(
