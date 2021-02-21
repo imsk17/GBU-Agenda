@@ -10,48 +10,43 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Column(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset(
+                'assets/gbu.png',
+                scale: 2.75,
+              ),
+              const GbuAgendaTitle(),
+            ],
+          ),
+          MaterialButton(
+            onPressed: () {
+              Navigator.pushReplacementNamed(
+                context,
+                "/school",
+              );
+            },
+            color: Colours.accent,
+            child: Row(
               mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Image.asset(
-                  'assets/gbu.png',
-                  scale: 2.5,
+                Text(
+                  "Let's Dive In",
+                  style: theme.textTheme.headline3,
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const GbuAgendaTitle()
+                const Icon(
+                  Icons.arrow_right,
+                  color: Colors.white,
+                )
               ],
             ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pushReplacementNamed(
-                  context,
-                  "/school",
-                );
-              },
-              color: Colours.accent,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    "Let's Get Started",
-                    style: theme.textTheme.headline3,
-                  ),
-                  const Icon(
-                    Icons.chevron_right_rounded,
-                    color: Colors.white,
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
       bottomSheet: MadeByMe(),
     );
