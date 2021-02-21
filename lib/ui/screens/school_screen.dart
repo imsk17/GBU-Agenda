@@ -2,14 +2,15 @@ import 'package:GbuAgenda/models/school.dart';
 
 import 'package:GbuAgenda/providers/data_providers.dart';
 import 'package:GbuAgenda/notifiers/school_selector.dart';
-import 'package:GbuAgenda/ui/widgets/error_snackbar.dart';
 import 'package:GbuAgenda/ui/widgets/error_widget.dart';
 
 import 'package:GbuAgenda/ui/widgets/gbu_agenda_title.dart';
+import 'package:GbuAgenda/utils/colours.dart';
 import 'package:GbuAgenda/utils/theme_data.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/material.dart';
+import '../../utils/extensions.dart';
 
 class SchoolScreen extends StatelessWidget {
   @override
@@ -44,10 +45,10 @@ class SchoolSelector extends ConsumerWidget {
       onChange: (context, value) {
         if (value is AsyncError) {
           ScaffoldMessenger.of(context).showSnackBar(
-            ErrorSnackbar(
-              message: (value as AsyncError).error.toString(),
-            ).build(
-              context,
+            SnackBar(
+              content: Text(
+                (value as AsyncError).error.toString(),
+              ),
             ),
           );
         }
@@ -126,9 +127,10 @@ class SchoolSelector extends ConsumerWidget {
                     Navigator.of(context).pushReplacementNamed("/section");
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const ErrorSnackbar(
-                        message: "Pfft!.. Dumb human, Pick a school first.",
-                      ).build(context),
+                      const SnackBar(
+                        content:
+                            Text("Pfft!.. Dumb human, Pick a school first."),
+                      ),
                     );
                   }
                 },

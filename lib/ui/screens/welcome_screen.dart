@@ -1,5 +1,6 @@
 import 'package:GbuAgenda/ui/widgets/gbu_agenda_title.dart';
 import 'package:GbuAgenda/ui/widgets/made_by.dart';
+import 'package:GbuAgenda/utils/colours.dart';
 
 import 'package:GbuAgenda/utils/theme_data.dart';
 

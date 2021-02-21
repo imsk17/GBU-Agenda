@@ -1,8 +1,10 @@
 import 'package:GbuAgenda/models/class.dart';
 import 'package:GbuAgenda/ui/widgets/chips.dart';
+import 'package:GbuAgenda/utils/colours.dart';
 import 'package:GbuAgenda/utils/constants.dart';
 import 'package:GbuAgenda/utils/theme_data.dart';
 import 'package:flutter/material.dart';
+import '../../utils/extensions.dart';
 
 class ClassCard extends StatelessWidget {
   final Class _class;
