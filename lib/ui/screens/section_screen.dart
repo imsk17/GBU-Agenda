@@ -3,6 +3,7 @@ import 'package:GbuAgenda/models/section.dart';
 import 'package:GbuAgenda/providers/data_providers.dart';
 import 'package:GbuAgenda/notifiers/school_selector.dart';
 import 'package:GbuAgenda/notifiers/section_selector.dart';
+import 'package:GbuAgenda/ui/widgets/drop_downs.dart';
 import 'package:GbuAgenda/ui/widgets/error_widget.dart';
 
 import 'package:GbuAgenda/ui/widgets/gbu_agenda_title.dart';
@@ -11,7 +12,6 @@ import 'package:GbuAgenda/utils/theme_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../utils/extensions.dart';
 
 class SectionScreen extends StatelessWidget {
   @override
@@ -21,18 +21,18 @@ class SectionScreen extends StatelessWidget {
         backgroundColor: theme.scaffoldBackgroundColor,
         body: Column(
           children: [
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 35),
-              child: const GbuAgendaTitle(),
+            const GbuAgendaTitle(),
+            const SizedBox(
+              height: 40,
             ),
             Text(
               "Please Select Your Section",
               style: theme.textTheme.headline3,
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 20),
-              child: SectionSelector(),
+            const SizedBox(
+              height: 20,
             ),
+            SectionSelector(),
           ],
         ),
       ),
@@ -65,70 +65,45 @@ class SectionSelector extends ConsumerWidget {
         data: (sections) {
           return Column(
             children: [
-              // ignore: avoid_unnecessary_containers
-              Container(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Container(
-                    color: Colours.lightScaffold,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12.0, vertical: 8.0),
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    child: Column(
-                      children: [
-                        DropdownButton<Section>(
-                          value: schoolSelector.school,
-                          hint: Text(
-                            "Select a Value",
-                            style: theme.textTheme.headline3,
-                          ),
-                          underline: Container(),
-                          dropdownColor: theme.scaffoldBackgroundColor,
-                          onChanged: schoolSelector.setschool,
-                          items: sections
-                              .map(
-                                (e) => DropdownMenuItem<Section>(
-                                  value: e,
-                                  child: SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.65,
-                                    child: OverflowBar(
-                                      children: [
-                                        Text(
-                                          "${e.programName} ",
-                                          overflow: TextOverflow.ellipsis,
-                                          style: theme.textTheme.headline4,
-                                        ),
-                                        Text(
-                                          "${e.sectionName.trim()} - Sem - ${e.semester}",
-                                          overflow: TextOverflow.ellipsis,
-                                          style: theme.textTheme.headline4
-                                              .toAccent(),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              )
-                              .toList(),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: Container(
+                  color: Colours.lightScaffold,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0, vertical: 8.0),
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  child: Column(
+                    children: [
+                      DropdownButton<Section>(
+                        value: schoolSelector.school,
+                        hint: Text(
+                          "Select a Section",
+                          style: theme.textTheme.headline3,
                         ),
-                      ],
-                    ),
+                        underline: Container(),
+                        dropdownColor: theme.scaffoldBackgroundColor,
+                        onChanged: schoolSelector.setschool,
+                        items: sections
+                            .map(
+                              (e) => sectionDropDownTile(e, context),
+                            )
+                            .toList(),
+                      ),
+                    ],
                   ),
                 ),
               ),
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
               MaterialButton(
                 color: theme.accentColor,
                 onPressed: () {
-                  final selectedSection =
-                      context.read(SectionSelectorNotifier.provider).school;
+                  final sectionPro =
+                      context.read(SectionSelectorNotifier.provider);
+                  final selectedSection = sectionPro.school;
                   if (selectedSection != null) {
-                    context
-                        .read(SectionSelectorNotifier.provider)
-                        .persistToDatabase();
+                    sectionPro.persistToDatabase();
                     Navigator.pushReplacementNamed(context, "/timetable");
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(

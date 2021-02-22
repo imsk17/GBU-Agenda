@@ -1,4 +1,5 @@
 import 'package:GbuAgenda/models/school.dart';
+import 'package:GbuAgenda/models/section.dart';
 import 'package:GbuAgenda/utils/text_theme.dart';
 import 'package:flutter/material.dart';
 import '../../utils/extensions.dart';
@@ -21,6 +22,29 @@ DropdownMenuItem<School> schoolDropDownTile(School e, BuildContext c) {
               style: textTheme.headline3.toAccent(),
             ),
           ),
+        ],
+      ),
+    ),
+  );
+}
+
+DropdownMenuItem<Section> sectionDropDownTile(Section s, BuildContext c) {
+  return DropdownMenuItem<Section>(
+    value: s,
+    child: SizedBox(
+      width: MediaQuery.of(c).size.width * 0.65,
+      child: OverflowBar(
+        children: [
+          Text(
+            "${s.programName} ",
+            overflow: TextOverflow.ellipsis,
+            style: textTheme.headline4,
+          ),
+          Text(
+            s.sectionName.trim(),
+            overflow: TextOverflow.ellipsis,
+            style: textTheme.headline4.toAccent(),
+          )
         ],
       ),
     ),
