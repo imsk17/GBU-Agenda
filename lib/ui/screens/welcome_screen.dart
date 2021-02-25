@@ -11,43 +11,45 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image.asset(
-                'assets/gbu.png',
-                scale: 2.75,
-              ),
-              const GbuAgendaTitle(),
-            ],
-          ),
-          MaterialButton(
-            onPressed: () {
-              Navigator.pushReplacementNamed(
-                context,
-                "/school",
-              );
-            },
-            color: Colours.accent,
-            child: Row(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "Let's Dive In",
-                  style: theme.textTheme.headline3,
+                Image.asset(
+                  'assets/gbu.png',
+                  scale: 2.75,
                 ),
-                const Icon(
-                  Icons.arrow_right,
-                  color: Colors.white,
-                )
+                const GbuAgendaTitle(),
               ],
             ),
-          )
-        ],
+            MaterialButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  "/school",
+                );
+              },
+              color: Colours.accent,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "Let's Dive In",
+                    style: theme.textTheme.headline3,
+                  ),
+                  const Icon(
+                    Icons.arrow_right,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
       bottomSheet: MadeByMe(),
     );

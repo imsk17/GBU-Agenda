@@ -59,70 +59,72 @@ class SchoolSelector extends ConsumerWidget {
       provider: DataProviders.school,
       child: schools.when(
         data: (schools) {
-          return Column(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Container(
-                  color: Colours.lightScaffold,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12.0,
-                    vertical: 8.0,
-                  ),
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  child: DropdownButton<School>(
-                    value: schoolSelector.school,
-                    hint: Text(
-                      "Select a School",
-                      style: theme.textTheme.headline3,
+          return Center(
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Container(
+                    color: Colours.lightScaffold,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12.0,
+                      vertical: 8.0,
                     ),
-                    underline: Container(),
-                    dropdownColor: theme.scaffoldBackgroundColor,
-                    onChanged: schoolSelector.setschool,
-                    items: schools
-                        .map(
-                          (e) => schoolDropDownTile(e, context),
-                        )
-                        .toList(),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              MaterialButton(
-                color: theme.accentColor,
-                onPressed: () {
-                  final schoolSelPro =
-                      context.read(SchoolSelectorNotifier.provider);
-                  final selectedSchool = schoolSelPro.school;
-                  if (selectedSchool != null) {
-                    schoolSelPro.persistToDatabase();
-                    Navigator.of(context).pushReplacementNamed("/section");
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content:
-                            Text("Pfft!.. Dumb human, Pick a school first."),
+                    width: MediaQuery.of(context).size.width * 0.8,
+                    child: DropdownButton<School>(
+                      value: schoolSelector.school,
+                      hint: Text(
+                        "Select a School",
+                        style: theme.textTheme.headline3,
                       ),
-                    );
-                  }
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      "Next Up, Section",
-                      style: theme.textTheme.headline3,
+                      underline: Container(),
+                      dropdownColor: theme.scaffoldBackgroundColor,
+                      onChanged: schoolSelector.setschool,
+                      items: schools
+                          .map(
+                            (e) => schoolDropDownTile(e, context),
+                          )
+                          .toList(),
                     ),
-                    const Icon(
-                      Icons.chevron_right,
-                      color: Colors.white,
-                    )
-                  ],
+                  ),
                 ),
-              )
-            ],
+                const SizedBox(
+                  height: 20,
+                ),
+                MaterialButton(
+                  color: theme.accentColor,
+                  onPressed: () {
+                    final schoolSelPro =
+                        context.read(SchoolSelectorNotifier.provider);
+                    final selectedSchool = schoolSelPro.school;
+                    if (selectedSchool != null) {
+                      schoolSelPro.persistToDatabase();
+                      Navigator.of(context).pushReplacementNamed("/section");
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content:
+                              Text("Pfft!.. Dumb human, Pick a school first."),
+                        ),
+                      );
+                    }
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "Next Up, Section",
+                        style: theme.textTheme.headline3,
+                      ),
+                      const Icon(
+                        Icons.chevron_right,
+                        color: Colors.white,
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           );
         },
         loading: () => const CircularProgressIndicator(),

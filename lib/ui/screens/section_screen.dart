@@ -19,21 +19,23 @@ class SectionScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: theme.scaffoldBackgroundColor,
-        body: Column(
-          children: [
-            const GbuAgendaTitle(),
-            const SizedBox(
-              height: 40,
-            ),
-            Text(
-              "Please Select Your Section",
-              style: theme.textTheme.headline3,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            SectionSelector(),
-          ],
+        body: Center(
+          child: Column(
+            children: [
+              const GbuAgendaTitle(),
+              const SizedBox(
+                height: 40,
+              ),
+              Text(
+                "Please Select Your Section",
+                style: theme.textTheme.headline3,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SectionSelector(),
+            ],
+          ),
         ),
       ),
     );
