@@ -33,14 +33,17 @@ class GBURepository implements Repository {
 
   @override
   Future<List<Section>> getAllSections(String school) async {
-    final sections = await gbuDao.getAllSections(school);
-    if (sections.isEmpty) {
-      final section = await gbuApi.getAllSections(school);
-      await Hive.box<Section>(Constants.sectionBox).addAll(section);
-      return section;
-    } else {
-      return sections;
+    List<Section> sections;
+    try {
+      sections = await gbuApi.getAllSections(school);
+    } on Failure {
+      sections = await gbuDao.getAllSections(school);
+      if (sections.isNotEmpty) {
+        await Hive.box<Section>(Constants.sectionBox).addAll(sections);
+        return sections;
+      }
     }
+    return sections;
   }
 
   @override
