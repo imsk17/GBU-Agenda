@@ -7,18 +7,23 @@ import 'package:GbuAgenda/repository/repository.dart';
 import 'package:flutter_riverpod/all.dart';
 
 class DataProviders {
-  static final school =
-      FutureProvider((ref) async => getIt<Repository>().getAllSchools());
-  static final section =
-      FutureProvider.family<List<Section>, String>((_, school) async {
-    return getIt<Repository>().getAllSections(school);
-  });
-  static final timeTable =
-      FutureProvider.family<Timetable, int>((_, section) async {
-    return getIt<Repository>().getTimetable(section);
-  });
-  static final subject =
-      FutureProvider.family<Subject, String>((_, code) async {
-    return getIt<Repository>().getSubject(code);
-  });
+  static final Repository _repo = getIt<Repository>();
+  static final school = FutureProvider(
+    (ref) async => _repo.getAllSchools(),
+  );
+  static final section = FutureProvider.family<List<Section>, String>(
+    (_, school) async {
+      return _repo.getAllSections(school);
+    },
+  );
+  static final timeTable = FutureProvider.family<Timetable, int>(
+    (_, section) async {
+      return _repo.getTimetable(section);
+    },
+  );
+  static final subject = FutureProvider.family<Subject, String>(
+    (_, code) async {
+      return _repo.getSubject(code);
+    },
+  );
 }
