@@ -1,5 +1,6 @@
 import 'package:GbuAgenda/ui/widgets/gbu_agenda_title.dart';
 import 'package:GbuAgenda/ui/widgets/made_by.dart';
+import 'package:GbuAgenda/utils/colours.dart';
 
 import 'package:GbuAgenda/utils/theme_data.dart';
 
@@ -20,12 +21,9 @@ class WelcomeScreen extends StatelessWidget {
               children: [
                 Image.asset(
                   'assets/gbu.png',
-                  scale: 2.5,
+                  scale: 2.75,
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const GbuAgendaTitle()
+                const GbuAgendaTitle(),
               ],
             ),
             MaterialButton(
@@ -40,11 +38,11 @@ class WelcomeScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "Let's Get Started",
+                    "Let's Dive In",
                     style: theme.textTheme.headline3,
                   ),
                   const Icon(
-                    Icons.chevron_right_rounded,
+                    Icons.arrow_right,
                     color: Colors.white,
                   )
                 ],

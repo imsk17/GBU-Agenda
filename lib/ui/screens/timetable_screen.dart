@@ -1,5 +1,6 @@
 import 'package:GbuAgenda/notifiers/section_selector.dart';
 import 'package:GbuAgenda/providers/data_providers.dart';
+import 'package:GbuAgenda/ui/widgets/settings_sheet.dart';
 import 'package:GbuAgenda/ui/widgets/class_card.dart';
 import 'package:GbuAgenda/utils/constants.dart';
 import 'package:GbuAgenda/utils/theme_data.dart';
@@ -76,60 +77,15 @@ class TimetableScreen extends ConsumerWidget {
               ),
             ),
             actions: [
-              Container(
-                padding: const EdgeInsets.all(8.0),
-                margin: const EdgeInsets.only(right: 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "School - ",
-                          style: theme.textTheme.headline4
-                              .copyWith(fontWeight: FontWeight.bold),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushReplacementNamed(context, "/school");
-                          },
-                          child: Text(
-                            section.school,
-                            style: theme.textTheme.headline4
-                                .toAccent()
-                                .copyWith(fontWeight: FontWeight.bold),
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 2,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Course - ",
-                          style: theme.textTheme.headline4
-                              .copyWith(fontWeight: FontWeight.bold),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushReplacementNamed(context, "/section");
-                          },
-                          child: Text(
-                            '${section.programName} ${section.sectionId}',
-                            style: theme.textTheme.headline4
-                                .toAccent()
-                                .copyWith(fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              )
+              IconButton(
+                icon: const Icon(Icons.settings),
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (c) => SettingsSheet(),
+                  );
+                },
+              ),
             ],
           ),
           body: d.showTt == 0
