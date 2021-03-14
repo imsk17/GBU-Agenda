@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:GbuAgenda/models/school.dart';
-import 'package:GbuAgenda/models/section.dart';
-import 'package:GbuAgenda/models/subject.dart';
-import 'package:GbuAgenda/models/teacher.dart';
-import 'package:GbuAgenda/models/timetable.dart';
-import 'package:GbuAgenda/network/api.dart';
+import 'package:gbuagenda/models/school.dart';
+import 'package:gbuagenda/models/section.dart';
+import 'package:gbuagenda/models/subject.dart';
+import 'package:gbuagenda/models/teacher.dart';
+import 'package:gbuagenda/models/timetable.dart';
+import 'package:gbuagenda/network/api.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 

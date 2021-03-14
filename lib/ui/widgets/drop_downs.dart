@@ -1,6 +1,6 @@
-import 'package:GbuAgenda/models/school.dart';
-import 'package:GbuAgenda/models/section.dart';
-import 'package:GbuAgenda/utils/text_theme.dart';
+import 'package:gbuagenda/models/school.dart';
+import 'package:gbuagenda/models/section.dart';
+import 'package:gbuagenda/utils/text_theme.dart';
 import 'package:flutter/material.dart';
 import '../../utils/extensions.dart';
 

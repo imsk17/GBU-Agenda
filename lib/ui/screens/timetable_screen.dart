@@ -1,13 +1,13 @@
-import 'package:GbuAgenda/notifiers/section_selector.dart';
-import 'package:GbuAgenda/providers/data_providers.dart';
-import 'package:GbuAgenda/ui/widgets/settings_sheet.dart';
-import 'package:GbuAgenda/ui/widgets/class_card.dart';
-import 'package:GbuAgenda/utils/constants.dart';
-import 'package:GbuAgenda/utils/theme_data.dart';
+import 'package:gbuagenda/notifiers/section_selector.dart';
+import 'package:gbuagenda/providers/data_providers.dart';
+import 'package:gbuagenda/ui/widgets/settings_sheet.dart';
+import 'package:gbuagenda/ui/widgets/class_card.dart';
+import 'package:gbuagenda/utils/constants.dart';
+import 'package:gbuagenda/utils/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
-import 'package:GbuAgenda/utils/extensions.dart';
+import 'package:gbuagenda/utils/extensions.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class TimetableScreen extends ConsumerWidget {

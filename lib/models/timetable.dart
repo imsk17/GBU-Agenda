@@ -1,4 +1,4 @@
-import 'package:GbuAgenda/models/class.dart';
+import 'package:gbuagenda/models/class.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 

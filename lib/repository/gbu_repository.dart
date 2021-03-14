@@ -1,12 +1,12 @@
-import 'package:GbuAgenda/db/dao.dart';
-import 'package:GbuAgenda/models/school.dart';
-import 'package:GbuAgenda/models/section.dart';
-import 'package:GbuAgenda/models/subject.dart';
-import 'package:GbuAgenda/models/teacher.dart';
-import 'package:GbuAgenda/models/timetable.dart';
-import 'package:GbuAgenda/network/api.dart';
-import 'package:GbuAgenda/repository/repository.dart';
-import 'package:GbuAgenda/utils/constants.dart';
+import 'package:gbuagenda/db/dao.dart';
+import 'package:gbuagenda/models/school.dart';
+import 'package:gbuagenda/models/section.dart';
+import 'package:gbuagenda/models/subject.dart';
+import 'package:gbuagenda/models/teacher.dart';
+import 'package:gbuagenda/models/timetable.dart';
+import 'package:gbuagenda/network/api.dart';
+import 'package:gbuagenda/repository/repository.dart';
+import 'package:gbuagenda/utils/constants.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 

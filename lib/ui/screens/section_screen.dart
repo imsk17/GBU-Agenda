@@ -1,14 +1,14 @@
-import 'package:GbuAgenda/models/section.dart';
+import 'package:gbuagenda/models/section.dart';
 
-import 'package:GbuAgenda/providers/data_providers.dart';
-import 'package:GbuAgenda/notifiers/school_selector.dart';
-import 'package:GbuAgenda/notifiers/section_selector.dart';
-import 'package:GbuAgenda/ui/widgets/drop_downs.dart';
-import 'package:GbuAgenda/ui/widgets/error_widget.dart';
+import 'package:gbuagenda/providers/data_providers.dart';
+import 'package:gbuagenda/notifiers/school_selector.dart';
+import 'package:gbuagenda/notifiers/section_selector.dart';
+import 'package:gbuagenda/ui/widgets/drop_downs.dart';
+import 'package:gbuagenda/ui/widgets/error_widget.dart';
 
-import 'package:GbuAgenda/ui/widgets/gbu_agenda_title.dart';
-import 'package:GbuAgenda/utils/colours.dart';
-import 'package:GbuAgenda/utils/theme_data.dart';
+import 'package:gbuagenda/ui/widgets/gbu_agenda_title.dart';
+import 'package:gbuagenda/utils/colours.dart';
+import 'package:gbuagenda/utils/theme_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

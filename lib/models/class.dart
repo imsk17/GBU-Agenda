@@ -1,5 +1,5 @@
-import 'package:GbuAgenda/models/bteacher.dart';
-import 'package:GbuAgenda/models/room.dart';
+import 'package:gbuagenda/models/bteacher.dart';
+import 'package:gbuagenda/models/room.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 

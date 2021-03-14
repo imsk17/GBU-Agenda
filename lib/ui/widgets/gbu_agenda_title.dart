@@ -1,4 +1,4 @@
-import 'package:GbuAgenda/utils/theme_data.dart';
+import 'package:gbuagenda/utils/theme_data.dart';
 import 'package:flutter/cupertino.dart';
 import '../../utils/extensions.dart';
 import '../../utils/theme_data.dart';

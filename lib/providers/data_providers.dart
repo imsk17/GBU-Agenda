@@ -1,9 +1,9 @@
-import 'package:GbuAgenda/di/locator.dart';
+import 'package:gbuagenda/di/locator.dart';
 
-import 'package:GbuAgenda/models/section.dart';
-import 'package:GbuAgenda/models/subject.dart';
-import 'package:GbuAgenda/models/timetable.dart';
-import 'package:GbuAgenda/repository/repository.dart';
+import 'package:gbuagenda/models/section.dart';
+import 'package:gbuagenda/models/subject.dart';
+import 'package:gbuagenda/models/timetable.dart';
+import 'package:gbuagenda/repository/repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class DataProviders {

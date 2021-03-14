@@ -1,9 +1,9 @@
-import 'package:GbuAgenda/notifiers/school_selector.dart';
-import 'package:GbuAgenda/notifiers/section_selector.dart';
+import 'package:gbuagenda/notifiers/school_selector.dart';
+import 'package:gbuagenda/notifiers/section_selector.dart';
 
-import 'package:GbuAgenda/utils/colours.dart';
+import 'package:gbuagenda/utils/colours.dart';
 
-import 'package:GbuAgenda/utils/text_theme.dart';
+import 'package:gbuagenda/utils/text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

@@ -4,16 +4,16 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:GbuAgenda/network/api.dart';
-import 'package:GbuAgenda/db/dao.dart';
+import 'package:gbuagenda/network/api.dart';
+import 'package:gbuagenda/db/dao.dart';
 import 'package:dio/dio.dart';
-import 'package:GbuAgenda/di/locator.dart';
-import 'package:GbuAgenda/network/gbu_agenda_api.dart';
-import 'package:GbuAgenda/db/gbu_dao.dart';
-import 'package:GbuAgenda/repository/gbu_repository.dart';
+import 'package:gbuagenda/di/locator.dart';
+import 'package:gbuagenda/network/gbu_agenda_api.dart';
+import 'package:gbuagenda/db/gbu_dao.dart';
+import 'package:gbuagenda/repository/gbu_repository.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:GbuAgenda/repository/repository.dart';
+import 'package:gbuagenda/repository/repository.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
