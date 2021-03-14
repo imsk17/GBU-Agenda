@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'school.g.dart';
 
-@JsonSerializable(nullable: false)
+@JsonSerializable()
 @HiveType(typeId: 1)
 class School {
   @HiveField(0)

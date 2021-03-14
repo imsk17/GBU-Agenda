@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'room.g.dart';
 
 @HiveType(typeId: 9)
-@JsonSerializable(nullable: false)
+@JsonSerializable()
 class Room {
   @HiveField(0)
   @JsonKey(name: 'id')

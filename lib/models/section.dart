@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'section.g.dart';
 
 @HiveType(typeId: 2)
-@JsonSerializable(nullable: false)
+@JsonSerializable()
 class Section {
   @HiveField(0)
   @JsonKey(name: 'section_id')

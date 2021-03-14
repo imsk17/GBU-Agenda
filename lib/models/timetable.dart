@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'timetable.g.dart';
 
 @HiveType(typeId: 3)
-@JsonSerializable(nullable: false)
+@JsonSerializable()
 class Timetable {
   @HiveField(0)
   final Map<String, List<Class>> days;

@@ -8,7 +8,7 @@ import 'bsubject.dart';
 part 'class.g.dart';
 
 @HiveType(typeId: 6)
-@JsonSerializable(nullable: false)
+@JsonSerializable()
 class Class {
   @HiveField(0)
   @JsonKey(name: 'period')

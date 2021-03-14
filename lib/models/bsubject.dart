@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'bsubject.g.dart';
 
-@JsonSerializable(nullable: false)
+@JsonSerializable()
 @HiveType(typeId: 7)
 class BSubject {
   @HiveField(0)
