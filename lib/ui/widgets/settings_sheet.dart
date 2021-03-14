@@ -5,7 +5,7 @@ import 'package:GbuAgenda/utils/colours.dart';
 
 import 'package:GbuAgenda/utils/text_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SettingsSheet extends StatelessWidget {
   @override

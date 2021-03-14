@@ -1,7 +1,7 @@
 import 'package:GbuAgenda/utils/colours.dart';
 import 'package:GbuAgenda/utils/theme_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class NetError extends StatelessWidget {
   final FutureProvider futurePro;

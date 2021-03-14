@@ -1,7 +1,7 @@
 import 'package:GbuAgenda/models/section.dart';
 import 'package:GbuAgenda/utils/constants.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/all.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 
 class SectionSelectorNotifier extends ChangeNotifier {
