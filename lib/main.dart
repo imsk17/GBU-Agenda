@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:gbuagenda/di/locator.dart';
 import 'package:gbuagenda/models/bsubject.dart';
 import 'package:gbuagenda/models/bteacher.dart';
@@ -7,9 +8,11 @@ import 'package:gbuagenda/models/class.dart';
 import 'package:gbuagenda/models/room.dart';
 import 'package:gbuagenda/models/school.dart';
 import 'package:gbuagenda/models/section.dart';
+import 'package:gbuagenda/models/subject.dart';
 import 'package:gbuagenda/models/timetable.dart';
 import 'package:gbuagenda/notifiers/school_selector.dart';
 import 'package:gbuagenda/notifiers/section_selector.dart';
+import 'package:gbuagenda/ui/screens/class_screen.dart';
 import 'package:gbuagenda/ui/screens/school_screen.dart';
 import 'package:gbuagenda/ui/screens/section_screen.dart';
 import 'package:gbuagenda/ui/screens/timetable_screen.dart';
@@ -35,6 +38,7 @@ Future<void> main() async {
   Hive.registerAdapter(BSubjectAdapter());
   Hive.registerAdapter(BTeacherAdapter());
   Hive.registerAdapter(RoomAdapter());
+  Hive.registerAdapter(SubjectAdapter());
   await Hive.openBox(Constants.appBox);
 
   FlutterError.onError = (FlutterErrorDetails details) {
@@ -61,7 +65,7 @@ class GBUAgenda extends StatelessWidget {
     );
     return MaterialApp(
       routes: {
-        "/": (ctx) {
+        "/": (_) {
           final isSchoolSelected =
               context.read(SchoolSelectorNotifier.provider).getFromDatabase();
           final isSectionSelected =
@@ -77,7 +81,8 @@ class GBUAgenda extends StatelessWidget {
         },
         "/school": (_) => SchoolScreen(),
         "/section": (_) => SectionScreen(),
-        "/timetable": (_) => TimetableScreen()
+        "/timetable": (_) => TimetableScreen(),
+        "/class": (_) => ClassScreen()
       },
       theme: theme,
       debugShowCheckedModeBanner: false,
