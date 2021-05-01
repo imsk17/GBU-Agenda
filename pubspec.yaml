@@ -20,7 +20,7 @@ dependencies:
   hive_flutter: ^1.0.0
   injectable: null
   json_serializable: ^4.0.2
-  sentry_flutter: ^5.0.0
+  sentry: ^5.0.0
 
 dev_dependencies:
   build_runner: null
