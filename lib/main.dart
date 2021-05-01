@@ -25,7 +25,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:sentry/sentry.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,11 +48,13 @@ Future<void> main() async {
       Zone.current.handleUncaughtError(details.exception, details.stack);
     }
   };
-  await SentryFlutter.init((options) {
-    options.debug = isInDebugMode;
-    options.dsn =
-        'https://0b8a4d76ae604cf486c69ccdeb08cac8@o457967.ingest.sentry.io/5545717';
-  }, appRunner: () => runApp(ProviderScope(child: GBUAgenda())));
+  await Sentry.init(
+    (options) {
+      options.dsn =
+          'https://0b8a4d76ae604cf486c69ccdeb08cac8@o457967.ingest.sentry.io/5545717';
+    },
+    appRunner: () => runApp(ProviderScope(child: GBUAgenda())),
+  );
 }
 
 class GBUAgenda extends StatelessWidget {
