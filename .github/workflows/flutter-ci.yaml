@@ -30,20 +30,23 @@ jobs:
       # Statically analyze the Dart code for any errors.
       - run: flutter analyze .
 
+      # Build the necessary code for building the app.
+      - run: flutter pub run build_runner build --delete-conflicting-outputs
+
       # Build apk.
       - name: Build APK For Release
         run: |
           flutter build apk --release --split-per-abi
         env:
-            KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-            ALIAS_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          ALIAS_PASSWORD: ${{ secrets.ALIAS_PASSWORD }}
       # Upload generated apk to the artifacts.
       - uses: marvinpinto/action-automatic-releases@latest
         with:
-           prerelease: false
-           repo_token: ${{ secrets.PANCAKE }}
-           automatic_release_tag: "latest"
-           title: "App Releases"
-           files: |
-             LICENSE
-             build/app/outputs/apk/release/*.apk
+          prerelease: false
+          repo_token: ${{ secrets.PANCAKE }}
+          automatic_release_tag: "latest"
+          title: "App Releases"
+          files: |
+            LICENSE
+            build/app/outputs/apk/release/*.apk
