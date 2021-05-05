@@ -11,17 +11,17 @@ class DataProviders {
   static final school = FutureProvider(
     (ref) async => _repo.getAllSchools(),
   );
-  static final section = FutureProvider.family<List<Section>, String>(
+  static final section = FutureProvider.family<List<Section>?, String>(
     (_, school) async {
       return _repo.getAllSections(school);
     },
   );
-  static final timeTable = FutureProvider.family<Timetable, int>(
+  static final timeTable = FutureProvider.family<Timetable?, int>(
     (_, section) async {
       return _repo.getTimetable(section);
     },
   );
-  static final subject = FutureProvider.family<Subject, String>(
+  static final subject = FutureProvider.family<Subject?, String>(
     (_, code) async {
       return _repo.getSubject(code);
     },

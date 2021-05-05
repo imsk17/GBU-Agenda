@@ -19,7 +19,7 @@ class Room {
   @JsonKey(name: 'is_lab')
   int isLab;
 
-  Room({this.id, this.isLab, this.name, this.building});
+  Room(this.id, this.isLab, this.name, this.building);
 
   factory Room.fromJson(Map<String, dynamic> json) => _$RoomFromJson(json);
 

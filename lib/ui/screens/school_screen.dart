@@ -46,7 +46,7 @@ class SchoolSelector extends ConsumerWidget {
   Widget build(BuildContext context, watch) {
     final schoolSelector = watch(SchoolSelectorNotifier.provider);
     final schools = watch(DataProviders.school);
-    return ProviderListener<AsyncValue<List<School>>>(
+    return ProviderListener<AsyncValue<List<School>?>>(
       onChange: (context, value) {
         if (value is AsyncError) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -81,7 +81,7 @@ class SchoolSelector extends ConsumerWidget {
                     underline: Container(),
                     dropdownColor: theme.scaffoldBackgroundColor,
                     onChanged: schoolSelector.setschool,
-                    items: schools
+                    items: schools!
                         .map(
                           (e) => schoolDropDownTile(e, context),
                         )

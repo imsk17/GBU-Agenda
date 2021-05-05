@@ -12,7 +12,7 @@ import 'dao.dart';
 @LazySingleton(as: DAO)
 class GBUDao implements DAO {
   @override
-  Future<List<School>> getAllSchools() async {
+  Future<List<School>?> getAllSchools() async {
     if (Hive.isBoxOpen(Constants.schoolBox)) {
       return Hive.box<School>(Constants.schoolBox).values.toList();
     } else {
@@ -21,7 +21,7 @@ class GBUDao implements DAO {
   }
 
   @override
-  Future<List<Section>> getAllSections(String school) async {
+  Future<List<Section>?> getAllSections(String school) async {
     if (Hive.isBoxOpen(Constants.sectionBox)) {
       return Hive.box<Section>(Constants.sectionBox)
           .values
@@ -36,7 +36,7 @@ class GBUDao implements DAO {
   }
 
   @override
-  Future<Timetable> getTimetable(int section) async {
+  Future<Timetable?> getTimetable(int section) async {
     if (Hive.isBoxOpen(Constants.timetableBox)) {
       return Hive.box<Timetable>(Constants.timetableBox).get('$section');
     } else {
@@ -46,7 +46,7 @@ class GBUDao implements DAO {
   }
 
   @override
-  Future<Subject> getSubject(String code) async {
+  Future<Subject?> getSubject(String code) async {
     if (Hive.isBoxOpen(Constants.subjectBox)) {
       return Hive.box<Subject>(Constants.subjectBox).get(code);
     } else {
@@ -55,7 +55,7 @@ class GBUDao implements DAO {
   }
 
   @override
-  Future<Teacher> getTeacher(int id) async {
+  Future<Teacher?> getTeacher(int id) async {
     if (Hive.isBoxOpen(Constants.teacherBox)) {
       return Hive.box<Teacher>(Constants.teacherBox).get('$id');
     } else {

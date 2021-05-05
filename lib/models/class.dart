@@ -26,7 +26,13 @@ class Class {
   @JsonKey(name: 'teacher')
   BTeacher teacher;
 
-  Class({this.batch, this.period, this.room, this.subject, this.teacher});
+  Class(
+    this.batch,
+    this.period,
+    this.room,
+    this.subject,
+    this.teacher,
+  );
 
   factory Class.fromJson(Map<String, dynamic> json) => _$ClassFromJson(json);
 

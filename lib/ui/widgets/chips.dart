@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class ClassChip extends StatelessWidget {
   final String text;
 
-  const ClassChip({this.text});
+  const ClassChip(this.text);
   @override
   Widget build(BuildContext context) {
     if (text == "G-0") {
@@ -21,7 +21,7 @@ class ClassChip extends StatelessWidget {
               padding: const EdgeInsets.all(6.0),
               child: Text(
                 text,
-                style: theme.textTheme.headline6.copyWith(
+                style: theme.textTheme.headline6!.copyWith(
                   color: Colours.accent,
                   fontWeight: FontWeight.w900,
                 ),

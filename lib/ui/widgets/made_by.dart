@@ -21,7 +21,7 @@ class MadeByMe extends StatelessWidget {
           ),
           Text(
             " @imsk17",
-            style: theme.textTheme.headline3.copyWith(color: Colours.accent),
+            style: theme.textTheme.headline3!.copyWith(color: Colours.accent),
           )
         ],
       ),

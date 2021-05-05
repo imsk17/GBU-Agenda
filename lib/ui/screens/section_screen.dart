@@ -48,10 +48,10 @@ class SectionSelector extends ConsumerWidget {
     final schoolSelector = watch(SectionSelectorNotifier.provider);
     final sectionsPro = watch(
       DataProviders.section(
-        context.read(SchoolSelectorNotifier.provider).getFromDatabase().name,
+        context.read(SchoolSelectorNotifier.provider).getFromDatabase()!.name,
       ),
     );
-    return ProviderListener<AsyncValue<List<Section>>>(
+    return ProviderListener<AsyncValue<List<Section>?>>(
       onChange: (context, value) {
         if (value is AsyncError) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -61,8 +61,10 @@ class SectionSelector extends ConsumerWidget {
           );
         }
       },
-      provider: DataProviders.section(
-          context.read(SchoolSelectorNotifier.provider).getFromDatabase().name),
+      provider: DataProviders.section(context
+          .read(SchoolSelectorNotifier.provider)
+          .getFromDatabase()!
+          .name),
       child: sectionsPro.when(
         data: (sections) {
           return Column(
@@ -85,7 +87,7 @@ class SectionSelector extends ConsumerWidget {
                         underline: Container(),
                         dropdownColor: theme.scaffoldBackgroundColor,
                         onChanged: schoolSelector.setschool,
-                        items: sections
+                        items: sections!
                             .map(
                               (e) => sectionDropDownTile(e, context),
                             )
@@ -138,7 +140,7 @@ class SectionSelector extends ConsumerWidget {
           futurePro: DataProviders.section(
             context
                 .read(SchoolSelectorNotifier.provider)
-                .getFromDatabase()
+                .getFromDatabase()!
                 .name,
           ),
         ),

@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class NetError extends StatelessWidget {
   final FutureProvider futurePro;
 
-  const NetError({this.futurePro});
+  const NetError({required this.futurePro});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -20,7 +20,7 @@ class NetError extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: Text(
             "Your internet connection is Trash.\n Consider Upgrading Lol.",
-            style: theme.textTheme.headline6.copyWith(color: Colours.error),
+            style: theme.textTheme.headline6!.copyWith(color: Colours.error),
             textAlign: TextAlign.center,
           ),
         ),

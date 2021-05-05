@@ -12,7 +12,7 @@ class BSubject {
   @HiveField(1)
   @JsonKey(name: 'name')
   String name;
-  BSubject({this.code, this.name});
+  BSubject({required this.code, required this.name});
   factory BSubject.fromJson(Map<String, dynamic> json) =>
       _$BSubjectFromJson(json);
   Map<String, dynamic> toJson() => _$BSubjectToJson(this);

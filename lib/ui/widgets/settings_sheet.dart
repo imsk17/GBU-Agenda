@@ -65,7 +65,7 @@ class SettingsSheet extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        'School of ${context.read(SchoolSelectorNotifier.provider).getFromDatabase().fullName}',
+                                        'School of ${context.read(SchoolSelectorNotifier.provider).getFromDatabase()!.fullName}',
                                         style: textTheme.headline4,
                                       ),
                                     ),
@@ -96,7 +96,7 @@ class SettingsSheet extends StatelessWidget {
                                         context
                                             .read(SectionSelectorNotifier
                                                 .provider)
-                                            .getFromDatabase()
+                                            .getFromDatabase()!
                                             .programName,
                                         style: textTheme.headline4,
                                       ),

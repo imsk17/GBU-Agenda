@@ -22,7 +22,7 @@ class GBURepository implements Repository {
   @override
   Future<List<School>> getAllSchools() async {
     final schools = await gbuDao.getAllSchools();
-    if (schools.isEmpty) {
+    if (schools!.isEmpty) {
       final school = await gbuApi.getAllSchools();
       await Hive.box<School>(Constants.schoolBox).addAll(school);
       return school;
@@ -32,13 +32,13 @@ class GBURepository implements Repository {
   }
 
   @override
-  Future<List<Section>> getAllSections(String school) async {
-    List<Section> sections;
+  Future<List<Section>?> getAllSections(String school) async {
+    List<Section>? sections;
     try {
       sections = await gbuApi.getAllSections(school);
     } on Failure {
       sections = await gbuDao.getAllSections(school);
-      if (sections.isNotEmpty) {
+      if (sections!.isNotEmpty) {
         await Hive.box<Section>(Constants.sectionBox).addAll(sections);
         return sections;
       }
@@ -81,7 +81,7 @@ class GBURepository implements Repository {
       return timetable;
     } on Failure {
       final tt = await gbuDao.getTimetable(section);
-      if (tt.days.isNotEmpty) {
+      if (tt!.days.isNotEmpty) {
         return tt;
       } else {
         throw Failure(

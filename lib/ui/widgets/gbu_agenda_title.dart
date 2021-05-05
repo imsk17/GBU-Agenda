@@ -17,7 +17,7 @@ class GbuAgendaTitle extends StatelessWidget {
             children: [
               TextSpan(
                 text: 'GBU ',
-                style: theme.textTheme.headline1.toAccent(),
+                style: theme.textTheme.headline1!.toAccent(),
               ),
               TextSpan(
                 text: 'Agenda',

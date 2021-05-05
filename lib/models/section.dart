@@ -27,7 +27,7 @@ class Section {
   @HiveField(6)
   @JsonKey(name: 'is_active')
   int isActive;
-  Section({
+  Section(
     this.sectionName,
     this.sectionId,
     this.programName,
@@ -35,7 +35,7 @@ class Section {
     this.programId,
     this.isActive,
     this.school,
-  });
+  );
   factory Section.fromJson(Map<String, dynamic> json) =>
       _$SectionFromJson(json);
   Map<String, dynamic> toJson() => _$SectionToJson(this);

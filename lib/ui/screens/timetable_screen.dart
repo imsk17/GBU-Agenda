@@ -20,13 +20,13 @@ class TimetableScreen extends ConsumerWidget {
         .getFromDatabase();
     final timetable = watch(
       DataProviders.timeTable(
-        section.sectionId,
+        section!.sectionId,
       ),
     );
 
     return timetable.when(
       data: (d) => DefaultTabController(
-        length: d.days.length,
+        length: d!.days.length,
         child: Scaffold(
           bottomSheet: Container(
             height: 16,
@@ -35,7 +35,7 @@ class TimetableScreen extends ConsumerWidget {
               alignment: Alignment.bottomCenter,
               child: Text(
                 "Last Updated: ${(timeago.format(DateTime.parse(Hive.box(Constants.appBox).get(Constants.timeTableFetchKey) as String))).titleCase} ",
-                style: theme.textTheme.headline3.copyWith(fontSize: 13),
+                style: theme.textTheme.headline3!.copyWith(fontSize: 13),
               ),
             ),
           ),
@@ -46,9 +46,9 @@ class TimetableScreen extends ConsumerWidget {
               tabs: d.days.keys.map(
                 (key) {
                   return Tab(
-                    key: Key(kDaysMap[key]),
+                    key: Key(kDaysMap[key]!),
                     child: Text(
-                      kDaysMap[key],
+                      kDaysMap[key]!,
                       style: theme.textTheme.headline3,
                     ),
                   );
@@ -64,12 +64,12 @@ class TimetableScreen extends ConsumerWidget {
                   children: [
                     TextSpan(
                       text: 'GBU',
-                      style: theme.textTheme.headline1
+                      style: theme.textTheme.headline1!
                           .copyWith(color: theme.accentColor, fontSize: 22),
                     ),
                     TextSpan(
                       text: 'Agenda',
-                      style: theme.textTheme.headline1
+                      style: theme.textTheme.headline1!
                           .copyWith(fontSize: 22, color: Colors.white),
                     ),
                   ],
@@ -120,10 +120,10 @@ class TimetableScreen extends ConsumerWidget {
                             DataProviders.timeTable(section.sectionId),
                           ),
                           child: ListView.builder(
-                            itemCount: (d.days[day]).length,
+                            itemCount: (d.days[day])!.length,
                             itemBuilder: (context, index) {
                               return ClassCard(
-                                d.days[day][index],
+                                d.days[day]![index],
                               );
                             },
                           ),

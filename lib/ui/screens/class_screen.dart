@@ -9,7 +9,7 @@ import 'package:gbuagenda/utils/text_theme.dart';
 class ClassScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Class _class = ModalRoute.of(context).settings.arguments as Class;
+    final Class _class = ModalRoute.of(context)!.settings.arguments! as Class;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colours.accent,
@@ -26,7 +26,7 @@ class ClassScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 child: Text(
                   "Subject - ${_class.subject.name}",
-                  style: textTheme.headline3.copyWith(
+                  style: textTheme.headline3!.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -90,7 +90,7 @@ class ClassScreen extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    "School - ${s.school}",
+                                    "School - ${s!.school}",
                                     style: textTheme.headline3,
                                   ),
                                 ),
@@ -141,8 +141,8 @@ class ClassScreen extends StatelessWidget {
                           child: Text(
                             e.toString(),
                             textAlign: TextAlign.center,
-                            style:
-                                textTheme.headline3.copyWith(color: Colors.red),
+                            style: textTheme.headline3!
+                                .copyWith(color: Colors.red),
                           ),
                         ),
                       ),
