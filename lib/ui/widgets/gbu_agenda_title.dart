@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:gbuagenda/utils/extensions.dart';
 import 'package:gbuagenda/utils/theme_data.dart';
-import 'package:flutter/cupertino.dart';
-import '../../utils/extensions.dart';
-import '../../utils/theme_data.dart';
 
 class GbuAgendaTitle extends StatelessWidget {
   const GbuAgendaTitle();

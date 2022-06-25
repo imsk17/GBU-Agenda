@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'colours.dart';
+import 'package:gbuagenda/utils/colours.dart';
 
 extension StringExtension on String {
   String get titleCase =>

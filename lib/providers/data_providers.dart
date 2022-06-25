@@ -1,10 +1,9 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gbuagenda/di/locator.dart';
-
 import 'package:gbuagenda/models/section.dart';
 import 'package:gbuagenda/models/subject.dart';
 import 'package:gbuagenda/models/timetable.dart';
 import 'package:gbuagenda/repository/repository.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class DataProviders {
   static final Repository _repo = getIt<Repository>();

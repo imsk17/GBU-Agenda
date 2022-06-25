@@ -1,13 +1,13 @@
-import 'package:gbuagenda/notifiers/section_selector.dart';
-import 'package:gbuagenda/providers/data_providers.dart';
-import 'package:gbuagenda/ui/widgets/settings_sheet.dart';
-import 'package:gbuagenda/ui/widgets/class_card.dart';
-import 'package:gbuagenda/utils/constants.dart';
-import 'package:gbuagenda/utils/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive/hive.dart';
+import 'package:gbuagenda/notifiers/section_selector.dart';
+import 'package:gbuagenda/providers/data_providers.dart';
+import 'package:gbuagenda/ui/widgets/class_card.dart';
+import 'package:gbuagenda/ui/widgets/settings_sheet.dart';
+import 'package:gbuagenda/utils/constants.dart';
 import 'package:gbuagenda/utils/extensions.dart';
+import 'package:gbuagenda/utils/theme_data.dart';
+import 'package:hive/hive.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class TimetableScreen extends ConsumerWidget {
@@ -30,6 +30,7 @@ class TimetableScreen extends ConsumerWidget {
         child: Scaffold(
           bottomSheet: Container(
             height: 16,
+            // ignore: deprecated_member_use
             color: theme.accentColor,
             child: Align(
               alignment: Alignment.bottomCenter,
@@ -65,6 +66,7 @@ class TimetableScreen extends ConsumerWidget {
                     TextSpan(
                       text: 'GBU',
                       style: theme.textTheme.headline1
+                          // ignore: deprecated_member_use
                           .copyWith(color: theme.accentColor, fontSize: 22),
                     ),
                     TextSpan(
@@ -115,6 +117,7 @@ class TimetableScreen extends ConsumerWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: RefreshIndicator(
                           color: Colors.white,
+                          // ignore: deprecated_member_use
                           backgroundColor: theme.accentColor,
                           onRefresh: () => context.refresh(
                             DataProviders.timeTable(section.sectionId),

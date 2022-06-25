@@ -1,15 +1,14 @@
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:gbuagenda/models/school.dart';
 import 'package:gbuagenda/models/section.dart';
 import 'package:gbuagenda/models/subject.dart';
 import 'package:gbuagenda/models/teacher.dart';
 import 'package:gbuagenda/models/timetable.dart';
 import 'package:gbuagenda/network/api.dart';
-import 'package:dio/dio.dart';
+import 'package:gbuagenda/network/failure.dart';
 import 'package:injectable/injectable.dart';
-
-import 'failure.dart';
 
 @LazySingleton(as: API)
 class GBUAgendaAPI implements API {

@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:gbuagenda/models/class.dart';
 import 'package:gbuagenda/ui/widgets/chips.dart';
 import 'package:gbuagenda/utils/colours.dart';
 import 'package:gbuagenda/utils/constants.dart';
+import 'package:gbuagenda/utils/extensions.dart';
 import 'package:gbuagenda/utils/theme_data.dart';
-import 'package:flutter/material.dart';
-import '../../utils/extensions.dart';
 
 class ClassCard extends StatelessWidget {
   final Class _class;
@@ -58,6 +58,7 @@ class ClassCard extends StatelessWidget {
                                 _class.room.isLab == 0
                                     ? Icons.book
                                     : Icons.thermostat_rounded,
+                                // ignore: deprecated_member_use
                                 color: theme.accentColor,
                               ),
                             ),

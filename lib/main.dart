@@ -1,6 +1,8 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gbuagenda/di/locator.dart';
 import 'package:gbuagenda/models/bsubject.dart';
 import 'package:gbuagenda/models/bteacher.dart';
@@ -20,10 +22,6 @@ import 'package:gbuagenda/ui/screens/welcome_screen.dart';
 import 'package:gbuagenda/utils/constants.dart';
 import 'package:gbuagenda/utils/is_debug.dart';
 import 'package:gbuagenda/utils/theme_data.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:sentry/sentry.dart';
 

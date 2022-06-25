@@ -5,12 +5,11 @@ import 'package:gbuagenda/models/subject.dart';
 import 'package:gbuagenda/models/teacher.dart';
 import 'package:gbuagenda/models/timetable.dart';
 import 'package:gbuagenda/network/api.dart';
+import 'package:gbuagenda/network/failure.dart';
 import 'package:gbuagenda/repository/repository.dart';
 import 'package:gbuagenda/utils/constants.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-
-import '../network/failure.dart';
 
 @LazySingleton(as: Repository)
 class GBURepository implements Repository {
@@ -85,7 +84,8 @@ class GBURepository implements Repository {
         return tt;
       } else {
         throw Failure(
-            "Cant Find Any Data. Check your Internet Connection, Trash!");
+          "Cant Find Any Data. Check your Internet Connection, Trash!",
+        );
       }
     }
   }

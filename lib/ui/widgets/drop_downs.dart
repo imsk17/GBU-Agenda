@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:gbuagenda/models/school.dart';
 import 'package:gbuagenda/models/section.dart';
+import 'package:gbuagenda/utils/extensions.dart';
 import 'package:gbuagenda/utils/text_theme.dart';
-import 'package:flutter/material.dart';
-import '../../utils/extensions.dart';
 
 DropdownMenuItem<School> schoolDropDownTile(School e, BuildContext c) {
   return DropdownMenuItem<School>(

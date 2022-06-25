@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:gbuagenda/utils/colours.dart';
 import 'package:gbuagenda/utils/theme_data.dart';
-import 'package:flutter/material.dart';
 
 class ClassChip extends StatelessWidget {
   final String text;

@@ -1,11 +1,9 @@
-import 'package:gbuagenda/notifiers/school_selector.dart';
-import 'package:gbuagenda/notifiers/section_selector.dart';
-
-import 'package:gbuagenda/utils/colours.dart';
-
-import 'package:gbuagenda/utils/text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gbuagenda/notifiers/school_selector.dart';
+import 'package:gbuagenda/notifiers/section_selector.dart';
+import 'package:gbuagenda/utils/colours.dart';
+import 'package:gbuagenda/utils/text_theme.dart';
 
 class SettingsSheet extends StatelessWidget {
   @override
@@ -94,8 +92,9 @@ class SettingsSheet extends StatelessWidget {
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         context
-                                            .read(SectionSelectorNotifier
-                                                .provider)
+                                            .read(
+                                              SectionSelectorNotifier.provider,
+                                            )
                                             .getFromDatabase()
                                             .programName,
                                         style: textTheme.headline4,

@@ -1,10 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:gbuagenda/ui/widgets/gbu_agenda_title.dart';
 import 'package:gbuagenda/ui/widgets/made_by.dart';
 import 'package:gbuagenda/utils/colours.dart';
-
 import 'package:gbuagenda/utils/theme_data.dart';
-
-import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen();

@@ -81,51 +81,51 @@ class ClassScreen extends StatelessWidget {
                 return subject.when(
                   data: (s) {
                     return Card(
-                        color: Colours.lightScaffold,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "School - ${s.school}",
-                                    style: textTheme.headline3,
-                                  ),
+                      color: Colours.lightScaffold,
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "School - ${s.school}",
+                                  style: textTheme.headline3,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    "Department - ${s.deptCode}",
-                                    style: textTheme.headline3,
-                                  ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  "Department - ${s.deptCode}",
+                                  style: textTheme.headline3,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  "Lab - ${s.l}",
+                                  style: textTheme.headline3,
+                                ),
+                                Text(
+                                  "Theory - ${s.t}",
+                                  style: textTheme.headline3,
+                                ),
+                                Text(
+                                  "Practical - ${s.p}",
+                                  style: textTheme.headline3,
                                 ),
                               ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(20.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text(
-                                    "Lab - ${s.l}",
-                                    style: textTheme.headline3,
-                                  ),
-                                  Text(
-                                    "Theory - ${s.t}",
-                                    style: textTheme.headline3,
-                                  ),
-                                  Text(
-                                    "Practical - ${s.p}",
-                                    style: textTheme.headline3,
-                                  ),
-                                ],
-                              ),
-                            )
-                          ],
-                        ));
+                          )
+                        ],
+                      ),
+                    );
                   },
                   loading: () {
                     return const Center(

@@ -17,8 +17,10 @@ class TimetableAdapter extends TypeAdapter<Timetable> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Timetable(
-      days: (fields[0] as Map)?.map((dynamic k, dynamic v) =>
-          MapEntry(k as String, (v as List)?.cast<Class>())),
+      days: (fields[0] as Map)?.map(
+        (dynamic k, dynamic v) =>
+            MapEntry(k as String, (v as List)?.cast<Class>()),
+      ),
       showTt: fields[1] as int,
     );
   }
@@ -52,10 +54,11 @@ Timetable _$TimetableFromJson(Map<String, dynamic> json) {
   return Timetable(
     days: (json['days'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(
-          k,
-          (e as List)
-              .map((e) => Class.fromJson(e as Map<String, dynamic>))
-              .toList()),
+        k,
+        (e as List)
+            .map((e) => Class.fromJson(e as Map<String, dynamic>))
+            .toList(),
+      ),
     ),
     showTt: json['show_tt'] as int,
   );

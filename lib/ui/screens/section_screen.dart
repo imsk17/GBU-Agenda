@@ -1,17 +1,14 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gbuagenda/models/section.dart';
-
-import 'package:gbuagenda/providers/data_providers.dart';
 import 'package:gbuagenda/notifiers/school_selector.dart';
 import 'package:gbuagenda/notifiers/section_selector.dart';
+import 'package:gbuagenda/providers/data_providers.dart';
 import 'package:gbuagenda/ui/widgets/drop_downs.dart';
 import 'package:gbuagenda/ui/widgets/error_widget.dart';
-
 import 'package:gbuagenda/ui/widgets/gbu_agenda_title.dart';
 import 'package:gbuagenda/utils/colours.dart';
 import 'package:gbuagenda/utils/theme_data.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SectionScreen extends StatelessWidget {
   @override
@@ -62,7 +59,8 @@ class SectionSelector extends ConsumerWidget {
         }
       },
       provider: DataProviders.section(
-          context.read(SchoolSelectorNotifier.provider).getFromDatabase().name),
+        context.read(SchoolSelectorNotifier.provider).getFromDatabase().name,
+      ),
       child: sectionsPro.when(
         data: (sections) {
           return Column(
@@ -72,7 +70,9 @@ class SectionSelector extends ConsumerWidget {
                 child: Container(
                   color: Colours.lightScaffold,
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 8.0),
+                    horizontal: 12.0,
+                    vertical: 8.0,
+                  ),
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: Column(
                     children: [
@@ -99,6 +99,7 @@ class SectionSelector extends ConsumerWidget {
                 height: 20,
               ),
               MaterialButton(
+                // ignore: deprecated_member_use
                 color: theme.accentColor,
                 onPressed: () {
                   final sectionPro =

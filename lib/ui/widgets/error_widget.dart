@@ -1,7 +1,7 @@
-import 'package:gbuagenda/utils/colours.dart';
-import 'package:gbuagenda/utils/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gbuagenda/utils/colours.dart';
+import 'package:gbuagenda/utils/theme_data.dart';
 
 class NetError extends StatelessWidget {
   final FutureProvider futurePro;
@@ -28,6 +28,7 @@ class NetError extends StatelessWidget {
           onPressed: () {
             context.refresh(futurePro);
           },
+          // ignore: deprecated_member_use
           color: theme.accentColor,
           child: Text(
             "Retry",

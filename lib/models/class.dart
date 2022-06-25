@@ -1,9 +1,8 @@
+import 'package:gbuagenda/models/bsubject.dart';
 import 'package:gbuagenda/models/bteacher.dart';
 import 'package:gbuagenda/models/room.dart';
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
-
-import 'bsubject.dart';
 
 part 'class.g.dart';
 

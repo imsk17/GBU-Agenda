@@ -1,7 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gbuagenda/models/school.dart';
 import 'package:gbuagenda/utils/constants.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive/hive.dart';
 
 class SchoolSelectorNotifier extends ChangeNotifier {

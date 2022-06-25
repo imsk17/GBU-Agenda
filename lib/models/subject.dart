@@ -36,17 +36,18 @@ class Subject {
   @HiveField(9)
   @JsonKey(name: 'school')
   String school;
-  Subject(
-      {this.school,
-      this.deptCode,
-      this.isLab,
-      this.l,
-      this.t,
-      this.p,
-      this.deptName,
-      this.subCode,
-      this.subId,
-      this.subName});
+  Subject({
+    this.school,
+    this.deptCode,
+    this.isLab,
+    this.l,
+    this.t,
+    this.p,
+    this.deptName,
+    this.subCode,
+    this.subId,
+    this.subName,
+  });
   factory Subject.fromJson(Map<String, dynamic> json) =>
       _$SubjectFromJson(json);
   Map<String, dynamic> toJson() => _$SubjectToJson(this);

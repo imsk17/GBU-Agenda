@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'colours.dart';
-import "extensions.dart";
-import 'text_theme.dart';
+import 'package:gbuagenda/utils/colours.dart';
+import 'package:gbuagenda/utils/extensions.dart';
+import 'package:gbuagenda/utils/text_theme.dart';
 
 final theme = ThemeData(
   cardTheme: const CardTheme(elevation: 0),
@@ -15,6 +15,7 @@ final theme = ThemeData(
       ),
     ),
   ),
+  // ignore: deprecated_member_use
   accentColor: Colours.accent,
   scaffoldBackgroundColor: Colours.scaffold,
   splashColor: Colors.white,

@@ -1,3 +1,4 @@
+import 'package:gbuagenda/db/dao.dart';
 import 'package:gbuagenda/models/school.dart';
 import 'package:gbuagenda/models/section.dart';
 import 'package:gbuagenda/models/subject.dart';
@@ -6,8 +7,6 @@ import 'package:gbuagenda/models/timetable.dart';
 import 'package:gbuagenda/utils/constants.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-
-import 'dao.dart';
 
 @LazySingleton(as: DAO)
 class GBUDao implements DAO {

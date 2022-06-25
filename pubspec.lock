@@ -362,7 +362,7 @@ packages:
     source: hosted
     version: "0.6.4"
   json_annotation:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: json_annotation
       url: "https://pub.dartlang.org"
@@ -640,7 +640,7 @@ packages:
     source: hosted
     version: "0.4.8"
   timeago:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: timeago
       url: "https://pub.dartlang.org"
