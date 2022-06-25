@@ -12,13 +12,13 @@ import 'package:timeago/timeago.dart' as timeago;
 
 class TimetableScreen extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
-    final section = context
+  Widget build(BuildContext context, ref) {
+    final section = ref
         .read(
           SectionSelectorNotifier.provider,
         )
         .getFromDatabase();
-    final timetable = watch(
+    final timetable = ref.read(
       DataProviders.timeTable(
         section.sectionId,
       ),
@@ -119,8 +119,8 @@ class TimetableScreen extends ConsumerWidget {
                           color: Colors.white,
                           // ignore: deprecated_member_use
                           backgroundColor: theme.accentColor,
-                          onRefresh: () => context.refresh(
-                            DataProviders.timeTable(section.sectionId),
+                          onRefresh: () => ref.refresh(
+                            DataProviders.timeTable(section.sectionId).future,
                           ),
                           child: ListView.builder(
                             itemCount: (d.days[day]).length,
@@ -147,7 +147,7 @@ class TimetableScreen extends ConsumerWidget {
         body: Center(
           child: MaterialButton(
             onPressed: () {
-              context.refresh(DataProviders.timeTable(section.sectionId));
+              ref.refresh(DataProviders.timeTable(section.sectionId));
             },
             child: Text(
               "Retry",

@@ -55,9 +55,9 @@ Future<void> main() async {
   );
 }
 
-class GBUAgenda extends StatelessWidget {
+class GBUAgenda extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: theme.scaffoldBackgroundColor,
@@ -67,9 +67,9 @@ class GBUAgenda extends StatelessWidget {
       routes: {
         "/": (_) {
           final isSchoolSelected =
-              context.read(SchoolSelectorNotifier.provider).getFromDatabase();
+              ref.read(SchoolSelectorNotifier.provider).getFromDatabase();
           final isSectionSelected =
-              context.read(SectionSelectorNotifier.provider).getFromDatabase();
+              ref.read(SectionSelectorNotifier.provider).getFromDatabase();
           if (isSectionSelected == null && isSchoolSelected == null) {
             return const WelcomeScreen();
           } else if (isSectionSelected != null) {

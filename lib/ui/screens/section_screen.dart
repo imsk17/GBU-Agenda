@@ -41,107 +41,100 @@ class SectionScreen extends StatelessWidget {
 
 class SectionSelector extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
-    final schoolSelector = watch(SectionSelectorNotifier.provider);
-    final sectionsPro = watch(
-      DataProviders.section(
-        context.read(SchoolSelectorNotifier.provider).getFromDatabase().name,
-      ),
+  Widget build(BuildContext context, ref) {
+    final schoolSelector = ref.read(SectionSelectorNotifier.provider);
+    final schoolName =
+        ref.read(SchoolSelectorNotifier.provider).getFromDatabase().name;
+    final sectionsPro = ref.read(
+      DataProviders.section(schoolName),
     );
-    return ProviderListener<AsyncValue<List<Section>>>(
-      onChange: (context, value) {
-        if (value is AsyncError) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text((value as AsyncError).error.toString()),
-            ),
-          );
-        }
+    ref.listen(
+      DataProviders.section(schoolName),
+      (_, __) => {},
+      onError: (error, stackTrace) => {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(error.toString()),
+          ),
+        )
       },
-      provider: DataProviders.section(
-        context.read(SchoolSelectorNotifier.provider).getFromDatabase().name,
-      ),
-      child: sectionsPro.when(
-        data: (sections) {
-          return Column(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Container(
-                  color: Colours.lightScaffold,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12.0,
-                    vertical: 8.0,
-                  ),
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  child: Column(
-                    children: [
-                      DropdownButton<Section>(
-                        value: schoolSelector.school,
-                        hint: Text(
-                          "Select a Section",
-                          style: theme.textTheme.headline3,
-                        ),
-                        underline: Container(),
-                        dropdownColor: theme.scaffoldBackgroundColor,
-                        onChanged: schoolSelector.setschool,
-                        items: sections
-                            .map(
-                              (e) => sectionDropDownTile(e, context),
-                            )
-                            .toList(),
-                      ),
-                    ],
-                  ),
+    );
+    return sectionsPro.when(
+      data: (sections) {
+        return Column(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Container(
+                color: Colours.lightScaffold,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12.0,
+                  vertical: 8.0,
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              MaterialButton(
-                // ignore: deprecated_member_use
-                color: theme.accentColor,
-                onPressed: () {
-                  final sectionPro =
-                      context.read(SectionSelectorNotifier.provider);
-                  final selectedSection = sectionPro.school;
-                  if (selectedSection != null) {
-                    sectionPro.persistToDatabase();
-                    Navigator.pushReplacementNamed(context, "/timetable");
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content:
-                            Text("Pfft!.. Dumb human, Pick a section first."),
-                      ),
-                    );
-                  }
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
+                width: MediaQuery.of(context).size.width * 0.8,
+                child: Column(
                   children: [
-                    Text(
-                      "Lets See The Timetable",
-                      style: theme.textTheme.headline3,
+                    DropdownButton<Section>(
+                      value: schoolSelector.school,
+                      hint: Text(
+                        "Select a Section",
+                        style: theme.textTheme.headline3,
+                      ),
+                      underline: Container(),
+                      dropdownColor: theme.scaffoldBackgroundColor,
+                      onChanged: schoolSelector.setschool,
+                      items: sections
+                          .map(
+                            (e) => sectionDropDownTile(e, context),
+                          )
+                          .toList(),
                     ),
-                    const Icon(
-                      Icons.chevron_right,
-                      color: Colors.white,
-                    )
                   ],
                 ),
-              )
-            ],
-          );
-        },
-        loading: () => const CircularProgressIndicator(),
-        error: (_, __) => NetError(
-          futurePro: DataProviders.section(
-            context
-                .read(SchoolSelectorNotifier.provider)
-                .getFromDatabase()
-                .name,
-          ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            MaterialButton(
+              // ignore: deprecated_member_use
+              color: theme.accentColor,
+              onPressed: () {
+                final sectionPro = ref.read(SectionSelectorNotifier.provider);
+                final selectedSection = sectionPro.school;
+                if (selectedSection != null) {
+                  sectionPro.persistToDatabase();
+                  Navigator.pushReplacementNamed(context, "/timetable");
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content:
+                          Text("Pfft!.. Dumb human, Pick a section first."),
+                    ),
+                  );
+                }
+              },
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    "Lets See The Timetable",
+                    style: theme.textTheme.headline3,
+                  ),
+                  const Icon(
+                    Icons.chevron_right,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+            )
+          ],
+        );
+      },
+      loading: () => const CircularProgressIndicator(),
+      error: (_, __) => NetError(
+        futurePro: DataProviders.section(
+          ref.read(SchoolSelectorNotifier.provider).getFromDatabase().name,
         ),
       ),
     );

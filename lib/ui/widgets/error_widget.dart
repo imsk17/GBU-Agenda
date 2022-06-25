@@ -3,12 +3,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gbuagenda/utils/colours.dart';
 import 'package:gbuagenda/utils/theme_data.dart';
 
-class NetError extends StatelessWidget {
+class NetError extends ConsumerWidget {
   final FutureProvider futurePro;
 
   const NetError({this.futurePro});
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
     return Column(
       children: [
         const Icon(
@@ -26,7 +26,7 @@ class NetError extends StatelessWidget {
         ),
         MaterialButton(
           onPressed: () {
-            context.refresh(futurePro);
+            ref.refresh(futurePro);
           },
           // ignore: deprecated_member_use
           color: theme.accentColor,

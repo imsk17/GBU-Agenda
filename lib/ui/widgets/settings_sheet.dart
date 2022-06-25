@@ -5,9 +5,9 @@ import 'package:gbuagenda/notifiers/section_selector.dart';
 import 'package:gbuagenda/utils/colours.dart';
 import 'package:gbuagenda/utils/text_theme.dart';
 
-class SettingsSheet extends StatelessWidget {
+class SettingsSheet extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
     return BottomSheet(
       backgroundColor: Colors.black,
       onClosing: () {
@@ -63,7 +63,7 @@ class SettingsSheet extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        'School of ${context.read(SchoolSelectorNotifier.provider).getFromDatabase().fullName}',
+                                        'School of ${ref.read(SchoolSelectorNotifier.provider).getFromDatabase().fullName}',
                                         style: textTheme.headline4,
                                       ),
                                     ),
@@ -91,7 +91,7 @@ class SettingsSheet extends StatelessWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        context
+                                        ref
                                             .read(
                                               SectionSelectorNotifier.provider,
                                             )

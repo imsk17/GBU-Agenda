@@ -75,9 +75,9 @@ class ClassScreen extends StatelessWidget {
               height: 30,
             ),
             Consumer(
-              builder: (context, watch, child) {
+              builder: (context, ref, child) {
                 final subject =
-                    watch(DataProviders.subject(_class.subject.code));
+                    ref.watch(DataProviders.subject(_class.subject.code));
                 return subject.when(
                   data: (s) {
                     return Card(
