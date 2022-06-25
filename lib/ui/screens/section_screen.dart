@@ -44,13 +44,13 @@ class SectionSelector extends ConsumerWidget {
   Widget build(BuildContext context, ref) {
     final schoolSelector = ref.read(SectionSelectorNotifier.provider);
     final schoolName =
-        ref.read(SchoolSelectorNotifier.provider).getFromDatabase().name;
+        ref.read(SchoolSelectorNotifier.provider).getFromDatabase()!.name;
     final sectionsPro = ref.read(
       DataProviders.section(schoolName),
     );
     ref.listen(
       DataProviders.section(schoolName),
-      (_, __) => {},
+      (dynamic _, dynamic __) => {},
       onError: (error, stackTrace) => {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -134,7 +134,7 @@ class SectionSelector extends ConsumerWidget {
       loading: () => const CircularProgressIndicator(),
       error: (_, __) => NetError(
         futurePro: DataProviders.section(
-          ref.read(SchoolSelectorNotifier.provider).getFromDatabase().name,
+          ref.read(SchoolSelectorNotifier.provider).getFromDatabase()!.name,
         ),
       ),
     );

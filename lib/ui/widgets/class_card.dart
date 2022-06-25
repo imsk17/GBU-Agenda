@@ -32,12 +32,12 @@ class ClassCard extends StatelessWidget {
                 children: [
                   RichText(
                     text: TextSpan(
-                      style: theme.textTheme.headline4
+                      style: theme.textTheme.headline4!
                           .copyWith(fontWeight: FontWeight.bold),
                       text: _class.subject.name,
                       children: [
                         TextSpan(
-                          style: theme.textTheme.headline4
+                          style: theme.textTheme.headline4!
                               .toAccent()
                               .copyWith(fontWeight: FontWeight.bold),
                           text: " (${_class.subject.code})",
@@ -64,12 +64,12 @@ class ClassCard extends StatelessWidget {
                             ),
                             ClassChip(text: _class.room.name),
                             ClassChip(text: "G-${_class.batch}"),
-                            ClassChip(text: _class.teacher.abbr.toUpperCase()),
+                            ClassChip(text: _class.teacher!.abbr.toUpperCase()),
                           ],
                         ),
                         Text(
-                          kClassTimingsMap[_class.period],
-                          style: theme.textTheme.headline5
+                          kClassTimingsMap[_class.period]!,
+                          style: theme.textTheme.headline5!
                               .copyWith(color: Colours.timing),
                         ),
                       ],

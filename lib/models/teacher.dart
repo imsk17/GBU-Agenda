@@ -24,14 +24,14 @@ class Teacher {
   @HiveField(5)
   @JsonKey(name: 'is_active')
   int isActive;
-  Teacher({
+  Teacher(
     this.id,
     this.name,
     this.abbr,
     this.school,
     this.department,
     this.isActive,
-  });
+  );
   factory Teacher.fromJson(Map<String, dynamic> json) =>
       _$TeacherFromJson(json);
   Map<String, dynamic> toJson() => _$TeacherToJson(this);

@@ -80,7 +80,7 @@ class GBURepository implements Repository {
       return timetable;
     } on Failure {
       final tt = await gbuDao.getTimetable(section);
-      if (tt.days.isNotEmpty) {
+      if (tt!.days.isNotEmpty) {
         return tt;
       } else {
         throw Failure(

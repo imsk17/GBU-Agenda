@@ -19,7 +19,7 @@ DropdownMenuItem<School> schoolDropDownTile(School e, BuildContext c) {
             child: Text(
               e.fullName,
               overflow: TextOverflow.ellipsis,
-              style: textTheme.headline3.toAccent(),
+              style: textTheme.headline3!.toAccent(),
             ),
           ),
         ],
@@ -43,7 +43,7 @@ DropdownMenuItem<Section> sectionDropDownTile(Section s, BuildContext c) {
           Text(
             s.sectionName.trim(),
             overflow: TextOverflow.ellipsis,
-            style: textTheme.headline4.toAccent(),
+            style: textTheme.headline4!.toAccent(),
           )
         ],
       ),

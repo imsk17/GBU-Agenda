@@ -63,7 +63,7 @@ class SettingsSheet extends ConsumerWidget {
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                        'School of ${ref.read(SchoolSelectorNotifier.provider).getFromDatabase().fullName}',
+                                        'School of ${ref.read(SchoolSelectorNotifier.provider).getFromDatabase()!.fullName}',
                                         style: textTheme.headline4,
                                       ),
                                     ),
@@ -95,7 +95,7 @@ class SettingsSheet extends ConsumerWidget {
                                             .read(
                                               SectionSelectorNotifier.provider,
                                             )
-                                            .getFromDatabase()
+                                            .getFromDatabase()!
                                             .programName,
                                         style: textTheme.headline4,
                                       ),

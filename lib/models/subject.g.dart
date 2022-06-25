@@ -17,16 +17,16 @@ class SubjectAdapter extends TypeAdapter<Subject> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Subject(
-      school: fields[9] as String,
-      deptCode: fields[7] as String,
-      isLab: fields[3] as int,
-      l: fields[4] as int,
-      t: fields[5] as int,
-      p: fields[6] as int,
-      deptName: fields[8] as String,
-      subCode: fields[2] as String,
-      subId: fields[0] as int,
-      subName: fields[1] as String,
+      fields[9] as String,
+      fields[7] as String,
+      fields[3] as int,
+      fields[4] as int,
+      fields[5] as int,
+      fields[6] as int,
+      fields[8] as String,
+      fields[2] as String,
+      fields[0] as int,
+      fields[1] as String,
     );
   }
 
@@ -71,20 +71,18 @@ class SubjectAdapter extends TypeAdapter<Subject> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Subject _$SubjectFromJson(Map<String, dynamic> json) {
-  return Subject(
-    school: json['school'] as String,
-    deptCode: json['dept_code'] as String,
-    isLab: json['is_lab'] as int,
-    l: json['L'] as int,
-    t: json['T'] as int,
-    p: json['P'] as int,
-    deptName: json['dpt_name'] as String,
-    subCode: json['sub_code'] as String,
-    subId: json['sub_id'] as int,
-    subName: json['sub_name'] as String,
-  );
-}
+Subject _$SubjectFromJson(Map<String, dynamic> json) => Subject(
+      json['school'] as String,
+      json['dept_code'] as String,
+      json['is_lab'] as int,
+      json['L'] as int,
+      json['T'] as int,
+      json['P'] as int,
+      json['dpt_name'] as String,
+      json['sub_code'] as String,
+      json['sub_id'] as int,
+      json['sub_name'] as String,
+    );
 
 Map<String, dynamic> _$SubjectToJson(Subject instance) => <String, dynamic>{
       'sub_id': instance.subId,

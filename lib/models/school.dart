@@ -15,11 +15,11 @@ class School {
   @HiveField(2)
   @JsonKey(name: 'id')
   int id;
-  School({
+  School(
     this.name,
     this.fullName,
     this.id,
-  });
+  );
   factory School.fromJson(Map<String, dynamic> json) => _$SchoolFromJson(json);
   Map<String, dynamic> toJson() => _$SchoolToJson(this);
 

@@ -45,7 +45,7 @@ class SchoolSelector extends ConsumerWidget {
     final schools = ref.watch(DataProviders.school);
     ref.listen(
       DataProviders.school.future,
-      (_, value) => {},
+      (dynamic _, dynamic value) => {},
       onError: (error, stackTrace) => {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(

@@ -15,7 +15,7 @@ class BTeacher {
   @HiveField(2)
   @JsonKey(name: 'name')
   String name;
-  BTeacher({this.name, this.abbr, this.id});
+  BTeacher(this.name, this.abbr, this.id);
   factory BTeacher.fromJson(Map<String, dynamic> json) =>
       _$BTeacherFromJson(json);
   Map<String, dynamic> toJson() => _$BTeacherToJson(this);

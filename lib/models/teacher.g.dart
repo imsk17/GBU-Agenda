@@ -17,12 +17,12 @@ class TeacherAdapter extends TypeAdapter<Teacher> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Teacher(
-      id: fields[0] as int,
-      name: fields[1] as String,
-      abbr: fields[2] as String,
-      school: fields[3] as String,
-      department: fields[4] as String,
-      isActive: fields[5] as int,
+      fields[0] as int,
+      fields[1] as String,
+      fields[2] as String,
+      fields[3] as String,
+      fields[4] as String,
+      fields[5] as int,
     );
   }
 
@@ -59,16 +59,14 @@ class TeacherAdapter extends TypeAdapter<Teacher> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Teacher _$TeacherFromJson(Map<String, dynamic> json) {
-  return Teacher(
-    id: json['id'] as int,
-    name: json['name'] as String,
-    abbr: json['abbr'] as String,
-    school: json['school'] as String,
-    department: json['department'] as String,
-    isActive: json['is_active'] as int,
-  );
-}
+Teacher _$TeacherFromJson(Map<String, dynamic> json) => Teacher(
+      json['id'] as int,
+      json['name'] as String,
+      json['abbr'] as String,
+      json['school'] as String,
+      json['department'] as String,
+      json['is_active'] as int,
+    );
 
 Map<String, dynamic> _$TeacherToJson(Teacher instance) => <String, dynamic>{
       'id': instance.id,

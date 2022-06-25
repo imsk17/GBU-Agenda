@@ -17,9 +17,9 @@ class BTeacherAdapter extends TypeAdapter<BTeacher> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return BTeacher(
-      name: fields[2] as String,
-      abbr: fields[1] as String,
-      id: fields[0] as int,
+      fields[2] as String,
+      fields[1] as String,
+      fields[0] as int,
     );
   }
 
@@ -50,13 +50,11 @@ class BTeacherAdapter extends TypeAdapter<BTeacher> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-BTeacher _$BTeacherFromJson(Map<String, dynamic> json) {
-  return BTeacher(
-    name: json['name'] as String,
-    abbr: json['abbr'] as String,
-    id: json['id'] as int,
-  );
-}
+BTeacher _$BTeacherFromJson(Map<String, dynamic> json) => BTeacher(
+      json['name'] as String,
+      json['abbr'] as String,
+      json['id'] as int,
+    );
 
 Map<String, dynamic> _$BTeacherToJson(BTeacher instance) => <String, dynamic>{
       'id': instance.id,

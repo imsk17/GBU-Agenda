@@ -4,7 +4,7 @@ import 'package:gbuagenda/utils/colours.dart';
 import 'package:gbuagenda/utils/theme_data.dart';
 
 class NetError extends ConsumerWidget {
-  final FutureProvider futurePro;
+  final FutureProvider? futurePro;
 
   const NetError({this.futurePro});
   @override
@@ -20,13 +20,13 @@ class NetError extends ConsumerWidget {
           padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: Text(
             "Your internet connection is Trash.\n Consider Upgrading Lol.",
-            style: theme.textTheme.headline6.copyWith(color: Colours.error),
+            style: theme.textTheme.headline6!.copyWith(color: Colours.error),
             textAlign: TextAlign.center,
           ),
         ),
         MaterialButton(
           onPressed: () {
-            ref.refresh(futurePro);
+            ref.refresh(futurePro!);
           },
           // ignore: deprecated_member_use
           color: theme.accentColor,

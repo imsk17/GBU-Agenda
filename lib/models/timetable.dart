@@ -9,7 +9,7 @@ part 'timetable.g.dart';
 class Timetable {
   @HiveField(0)
   final Map<String, List<Class>> days;
-  Timetable({this.days, this.showTt});
+  Timetable(this.days, this.showTt);
   factory Timetable.fromJson(Map<String, dynamic> json) =>
       _$TimetableFromJson(json);
   Map<String, dynamic> toJson() => _$TimetableToJson(this);

@@ -34,7 +34,7 @@ final theme = ThemeData(
     size: 24,
   ),
   snackBarTheme: SnackBarThemeData(
-    contentTextStyle: textTheme.headline4.toAccent(),
+    contentTextStyle: textTheme.headline4!.toAccent(),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(4),
     ),

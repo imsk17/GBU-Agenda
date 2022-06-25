@@ -17,9 +17,9 @@ class SchoolAdapter extends TypeAdapter<School> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return School(
-      name: fields[0] as String,
-      fullName: fields[1] as String,
-      id: fields[2] as int,
+      fields[0] as String,
+      fields[1] as String,
+      fields[2] as int,
     );
   }
 
@@ -50,13 +50,11 @@ class SchoolAdapter extends TypeAdapter<School> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-School _$SchoolFromJson(Map<String, dynamic> json) {
-  return School(
-    name: json['name'] as String,
-    fullName: json['full_name'] as String,
-    id: json['id'] as int,
-  );
-}
+School _$SchoolFromJson(Map<String, dynamic> json) => School(
+      json['name'] as String,
+      json['full_name'] as String,
+      json['id'] as int,
+    );
 
 Map<String, dynamic> _$SchoolToJson(School instance) => <String, dynamic>{
       'name': instance.name,

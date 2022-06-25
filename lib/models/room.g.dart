@@ -17,10 +17,10 @@ class RoomAdapter extends TypeAdapter<Room> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Room(
-      id: fields[0] as int,
-      isLab: fields[3] as int,
-      name: fields[1] as String,
-      building: fields[2] as String,
+      fields[0] as int,
+      fields[3] as int,
+      fields[1] as String,
+      fields[2] as String,
     );
   }
 
@@ -53,14 +53,12 @@ class RoomAdapter extends TypeAdapter<Room> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Room _$RoomFromJson(Map<String, dynamic> json) {
-  return Room(
-    id: json['id'] as int,
-    isLab: json['is_lab'] as int,
-    name: json['name'] as String,
-    building: json['building'] as String,
-  );
-}
+Room _$RoomFromJson(Map<String, dynamic> json) => Room(
+      json['id'] as int,
+      json['is_lab'] as int,
+      json['name'] as String,
+      json['building'] as String,
+    );
 
 Map<String, dynamic> _$RoomToJson(Room instance) => <String, dynamic>{
       'id': instance.id,

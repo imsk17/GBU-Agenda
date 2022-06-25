@@ -3,7 +3,7 @@ import 'package:gbuagenda/utils/colours.dart';
 import 'package:gbuagenda/utils/theme_data.dart';
 
 class ClassChip extends StatelessWidget {
-  final String text;
+  final String? text;
 
   const ClassChip({this.text});
   @override
@@ -20,8 +20,8 @@ class ClassChip extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(6.0),
               child: Text(
-                text,
-                style: theme.textTheme.headline6.copyWith(
+                text!,
+                style: theme.textTheme.headline6!.copyWith(
                   color: Colours.accent,
                   fontWeight: FontWeight.w900,
                 ),

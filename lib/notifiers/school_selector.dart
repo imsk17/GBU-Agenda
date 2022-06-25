@@ -8,15 +8,15 @@ class SchoolSelectorNotifier extends ChangeNotifier {
   static final AutoDisposeChangeNotifierProvider<SchoolSelectorNotifier>
       provider =
       ChangeNotifierProvider.autoDispose((r) => SchoolSelectorNotifier());
-  School _school;
-  School get school => _school;
+  School? _school;
+  School? get school => _school;
   void persistToDatabase() =>
       Hive.box<dynamic>(Constants.appBox).put("SelectedSchool", _school);
 
-  School getFromDatabase() =>
-      Hive.box<dynamic>(Constants.appBox).get("SelectedSchool") as School;
+  School? getFromDatabase() =>
+      Hive.box<dynamic>(Constants.appBox).get("SelectedSchool") as School?;
 
-  void setschool(School s) {
+  void setschool(School? s) {
     _school = s;
     notifyListeners();
   }

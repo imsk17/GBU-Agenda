@@ -47,12 +47,10 @@ class BSubjectAdapter extends TypeAdapter<BSubject> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-BSubject _$BSubjectFromJson(Map<String, dynamic> json) {
-  return BSubject(
-    code: json['code'] as String,
-    name: json['name'] as String,
-  );
-}
+BSubject _$BSubjectFromJson(Map<String, dynamic> json) => BSubject(
+      code: json['code'] as String,
+      name: json['name'] as String,
+    );
 
 Map<String, dynamic> _$BSubjectToJson(BSubject instance) => <String, dynamic>{
       'code': instance.code,

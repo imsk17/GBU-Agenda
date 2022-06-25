@@ -17,11 +17,11 @@ class TimetableAdapter extends TypeAdapter<Timetable> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Timetable(
-      days: (fields[0] as Map)?.map(
+      (fields[0] as Map).map(
         (dynamic k, dynamic v) =>
-            MapEntry(k as String, (v as List)?.cast<Class>()),
+            MapEntry(k as String, (v as List).cast<Class>()),
       ),
-      showTt: fields[1] as int,
+      fields[1] as int,
     );
   }
 
@@ -50,19 +50,17 @@ class TimetableAdapter extends TypeAdapter<Timetable> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Timetable _$TimetableFromJson(Map<String, dynamic> json) {
-  return Timetable(
-    days: (json['days'] as Map<String, dynamic>).map(
-      (k, e) => MapEntry(
-        k,
-        (e as List)
-            .map((e) => Class.fromJson(e as Map<String, dynamic>))
-            .toList(),
+Timetable _$TimetableFromJson(Map<String, dynamic> json) => Timetable(
+      (json['days'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(
+          k,
+          (e as List<dynamic>)
+              .map((e) => Class.fromJson(e as Map<String, dynamic>))
+              .toList(),
+        ),
       ),
-    ),
-    showTt: json['show_tt'] as int,
-  );
-}
+      json['show_tt'] as int,
+    );
 
 Map<String, dynamic> _$TimetableToJson(Timetable instance) => <String, dynamic>{
       'days': instance.days,

@@ -17,11 +17,11 @@ class ClassAdapter extends TypeAdapter<Class> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Class(
-      batch: fields[1] as int,
-      period: fields[0] as int,
-      room: fields[3] as Room,
-      subject: fields[2] as BSubject,
-      teacher: fields[4] as BTeacher,
+      fields[1] as int,
+      fields[0] as int,
+      fields[3] as Room,
+      fields[2] as BSubject,
+      fields[4] as BTeacher?,
     );
   }
 
@@ -56,15 +56,15 @@ class ClassAdapter extends TypeAdapter<Class> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Class _$ClassFromJson(Map<String, dynamic> json) {
-  return Class(
-    batch: json['batch'] as int,
-    period: json['period'] as int,
-    room: Room.fromJson(json['room'] as Map<String, dynamic>),
-    subject: BSubject.fromJson(json['subject'] as Map<String, dynamic>),
-    teacher: BTeacher.fromJson(json['teacher'] as Map<String, dynamic>),
-  );
-}
+Class _$ClassFromJson(Map<String, dynamic> json) => Class(
+      json['batch'] as int,
+      json['period'] as int,
+      Room.fromJson(json['room'] as Map<String, dynamic>),
+      BSubject.fromJson(json['subject'] as Map<String, dynamic>),
+      json['teacher'] == null
+          ? null
+          : BTeacher.fromJson(json['teacher'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
       'period': instance.period,

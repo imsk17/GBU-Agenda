@@ -35,7 +35,7 @@ class GBUDao implements DAO {
   }
 
   @override
-  Future<Timetable> getTimetable(int section) async {
+  Future<Timetable?> getTimetable(int section) async {
     if (Hive.isBoxOpen(Constants.timetableBox)) {
       return Hive.box<Timetable>(Constants.timetableBox).get('$section');
     } else {
@@ -45,7 +45,7 @@ class GBUDao implements DAO {
   }
 
   @override
-  Future<Subject> getSubject(String code) async {
+  Future<Subject?> getSubject(String code) async {
     if (Hive.isBoxOpen(Constants.subjectBox)) {
       return Hive.box<Subject>(Constants.subjectBox).get(code);
     } else {
@@ -54,7 +54,7 @@ class GBUDao implements DAO {
   }
 
   @override
-  Future<Teacher> getTeacher(int id) async {
+  Future<Teacher?> getTeacher(int id) async {
     if (Hive.isBoxOpen(Constants.teacherBox)) {
       return Hive.box<Teacher>(Constants.teacherBox).get('$id');
     } else {

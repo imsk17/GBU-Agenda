@@ -9,9 +9,9 @@ abstract class DAO {
 
   Future<List<Section>> getAllSections(String school);
 
-  Future<Timetable> getTimetable(int section);
+  Future<Timetable?> getTimetable(int section);
 
-  Future<Subject> getSubject(String code);
+  Future<Subject?> getSubject(String code);
 
-  Future<Teacher> getTeacher(int id);
+  Future<Teacher?> getTeacher(int id);
 }

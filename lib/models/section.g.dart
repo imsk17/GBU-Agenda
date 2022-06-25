@@ -17,13 +17,13 @@ class SectionAdapter extends TypeAdapter<Section> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Section(
-      sectionName: fields[1] as String,
-      sectionId: fields[0] as int,
-      programName: fields[4] as String,
-      semester: fields[2] as int,
-      programId: fields[3] as int,
-      isActive: fields[6] as int,
-      school: fields[5] as String,
+      fields[1] as String,
+      fields[0] as int,
+      fields[4] as String,
+      fields[2] as int,
+      fields[3] as int,
+      fields[6] as int,
+      fields[5] as String,
     );
   }
 
@@ -62,17 +62,15 @@ class SectionAdapter extends TypeAdapter<Section> {
 // JsonSerializableGenerator
 // **************************************************************************
 
-Section _$SectionFromJson(Map<String, dynamic> json) {
-  return Section(
-    sectionName: json['section_name'] as String,
-    sectionId: json['section_id'] as int,
-    programName: json['program_name'] as String,
-    semester: json['semester'] as int,
-    programId: json['program_id'] as int,
-    isActive: json['is_active'] as int,
-    school: json['school'] as String,
-  );
-}
+Section _$SectionFromJson(Map<String, dynamic> json) => Section(
+      json['section_name'] as String,
+      json['section_id'] as int,
+      json['program_name'] as String,
+      json['semester'] as int,
+      json['program_id'] as int,
+      json['is_active'] as int,
+      json['school'] as String,
+    );
 
 Map<String, dynamic> _$SectionToJson(Section instance) => <String, dynamic>{
       'section_id': instance.sectionId,
