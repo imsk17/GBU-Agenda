@@ -28,18 +28,6 @@ class TimetableScreen extends ConsumerWidget {
       data: (d) => DefaultTabController(
         length: d.days.length,
         child: Scaffold(
-          bottomSheet: Container(
-            height: 16,
-            // ignore: deprecated_member_use
-            color: theme.accentColor,
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Text(
-                "Last Updated: ${(timeago.format(DateTime.parse(Hive.box(Constants.appBox).get(Constants.timeTableFetchKey) as String))).titleCase} ",
-                style: theme.textTheme.headline3!.copyWith(fontSize: 13),
-              ),
-            ),
-          ),
           backgroundColor: theme.scaffoldBackgroundColor,
           appBar: AppBar(
             bottom: TabBar(
@@ -64,7 +52,7 @@ class TimetableScreen extends ConsumerWidget {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: 'GBU',
+                      text: 'GBU ',
                       style: theme.textTheme.headline1!
                           // ignore: deprecated_member_use
                           .copyWith(color: theme.accentColor, fontSize: 22),
@@ -110,30 +98,53 @@ class TimetableScreen extends ConsumerWidget {
                     ),
                   ],
                 )
-              : TabBarView(
-                  children: d.days.keys.map(
-                    (day) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: RefreshIndicator(
-                          color: Colors.white,
-                          // ignore: deprecated_member_use
-                          backgroundColor: theme.accentColor,
-                          onRefresh: () => ref.refresh(
-                            DataProviders.timeTable(section.sectionId).future,
-                          ),
-                          child: ListView.builder(
-                            itemCount: d.days[day]!.length,
-                            itemBuilder: (context, index) {
-                              return ClassCard(
-                                d.days[day]![index],
-                              );
-                            },
-                          ),
+              : Column(
+                  children: [
+                    const SizedBox(
+                      height: 2,
+                    ),
+                    Container(
+                      height: 16,
+                      // ignore: deprecated_member_use
+                      color: theme.accentColor,
+                      child: Align(
+                        alignment: Alignment.topCenter,
+                        child: Text(
+                          "Last Updated: ${(timeago.format(DateTime.parse(Hive.box(Constants.appBox).get(Constants.timeTableFetchKey) as String))).titleCase} ",
+                          style:
+                              theme.textTheme.headline3!.copyWith(fontSize: 13),
                         ),
-                      );
-                    },
-                  ).toList(),
+                      ),
+                    ),
+                    Expanded(
+                      child: TabBarView(
+                        children: d.days.keys.map(
+                          (day) {
+                            return Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: RefreshIndicator(
+                                color: Colors.white,
+                                // ignore: deprecated_member_use
+                                backgroundColor: theme.accentColor,
+                                onRefresh: () => ref.refresh(
+                                  DataProviders.timeTable(section.sectionId)
+                                      .future,
+                                ),
+                                child: ListView.builder(
+                                  itemCount: d.days[day]!.length,
+                                  itemBuilder: (context, index) {
+                                    return ClassCard(
+                                      d.days[day]![index],
+                                    );
+                                  },
+                                ),
+                              ),
+                            );
+                          },
+                        ).toList(),
+                      ),
+                    )
+                  ],
                 ),
         ),
       ),

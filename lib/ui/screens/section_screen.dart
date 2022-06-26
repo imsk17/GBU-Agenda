@@ -51,10 +51,7 @@ class SectionSelector extends ConsumerWidget {
     );
     ref.listen(
       DataProviders.section(schoolName),
-      (dynamic _, dynamic __) => {
-        // ignore: avoid_print
-        print(__)
-      },
+      (dynamic _, dynamic __) => {},
       onError: (error, stackTrace) => {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
