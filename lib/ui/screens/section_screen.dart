@@ -42,15 +42,19 @@ class SectionScreen extends StatelessWidget {
 class SectionSelector extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
-    final schoolSelector = ref.read(SectionSelectorNotifier.provider);
+    final sectionSelector = ref.watch(SectionSelectorNotifier.provider);
     final schoolName =
         ref.read(SchoolSelectorNotifier.provider).getFromDatabase()!.name;
-    final sectionsPro = ref.read(
+
+    final sectionsPro = ref.watch(
       DataProviders.section(schoolName),
     );
     ref.listen(
       DataProviders.section(schoolName),
-      (dynamic _, dynamic __) => {},
+      (dynamic _, dynamic __) => {
+        // ignore: avoid_print
+        print(__)
+      },
       onError: (error, stackTrace) => {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -75,14 +79,14 @@ class SectionSelector extends ConsumerWidget {
                 child: Column(
                   children: [
                     DropdownButton<Section>(
-                      value: schoolSelector.school,
+                      value: sectionSelector.section,
                       hint: Text(
                         "Select a Section",
                         style: theme.textTheme.headline3,
                       ),
                       underline: Container(),
                       dropdownColor: theme.scaffoldBackgroundColor,
-                      onChanged: schoolSelector.setschool,
+                      onChanged: sectionSelector.setSection,
                       items: sections
                           .map(
                             (e) => sectionDropDownTile(e, context),
@@ -101,7 +105,7 @@ class SectionSelector extends ConsumerWidget {
               color: theme.accentColor,
               onPressed: () {
                 final sectionPro = ref.read(SectionSelectorNotifier.provider);
-                final selectedSection = sectionPro.school;
+                final selectedSection = sectionPro.section;
                 if (selectedSection != null) {
                   sectionPro.persistToDatabase();
                   Navigator.pushReplacementNamed(context, "/timetable");

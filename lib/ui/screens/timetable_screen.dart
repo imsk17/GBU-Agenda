@@ -18,7 +18,7 @@ class TimetableScreen extends ConsumerWidget {
           SectionSelectorNotifier.provider,
         )
         .getFromDatabase()!;
-    final timetable = ref.read(
+    final timetable = ref.watch(
       DataProviders.timeTable(
         section.sectionId,
       ),
