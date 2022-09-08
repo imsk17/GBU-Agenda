@@ -10,6 +10,14 @@ import 'package:gbuagenda/utils/theme_data.dart';
 import 'package:hive/hive.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
+int getTodayIndex() {
+  final weekDay = DateTime.now().weekday;
+  final todayIndex = weekDay == DateTime.saturday || weekDay == DateTime.sunday
+      ? 0
+      : weekDay - 1;
+  return todayIndex;
+}
+
 class TimetableScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
@@ -26,6 +34,7 @@ class TimetableScreen extends ConsumerWidget {
 
     return timetable.when(
       data: (d) => DefaultTabController(
+        initialIndex: getTodayIndex(),
         length: d.days.length,
         child: Scaffold(
           backgroundColor: theme.scaffoldBackgroundColor,
